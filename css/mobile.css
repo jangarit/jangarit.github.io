@@ -1,0 +1,209 @@
+@media only screen and (max-width: 1200px) {
+	
+	 .container { width: 960px; }
+	 #single_cont { width: 960px; margin: 0 auto; }	
+	/*.logo { max-width: 235px; height: auto; }*/
+	.header_search { width: 180px; }
+	
+	.header_menu { max-width: 750px; }
+	.header_menu ul li { margin-right: 35px; font-size: 14px; }
+	#slideshow_cont {  width: 960px; height: 517px; }
+	.slide_box img, .slide_box iframe { width: 960px; height: 517px;  }
+	
+	.list_carousel li {
+		margin: 0 10px 0 0;
+		width: 313px;
+	}
+	.list_carousel li img { width: 313px; height: 300px; }	
+	.list_carousel li iframe { width: 313px; height: 300px; }	
+	
+	.home_left { float: left; width: 630px; }
+	
+	.home_post_box { width: 231px; margin-right: 12px; }
+	.home_post_box img,
+	.home_post_box iframe { width: 231px; height: 202px; }
+	.home_post_box_last { margin-right: 0; }
+	.home_box iframe { height: 320px; }
+	
+	.archive_cont .home_post_box { margin-right: 30px; }
+	.archive_cont .home_post_box_last { margin-right: 0; }	
+	
+	.single_left { width: 630px; }
+	.home_blog_box { margin-right: 8px; width: 49%; margin-right: 2%; }
+	.home_blog_box img,
+	.home_blog_box iframe { width: 100%; height: 275px; }
+	.home_blog_box_last { margin-right: 0; }
+	
+	.archive_title { margin-bottom: 45px; font-size: 23px; }
+	.archive_box { margin-right: 15px; font-size: 13px; width: 310px; }
+	.archive_box img,
+	.archive_box iframe { width: 310px; height: 208px; }
+	.archive_box_last { margin-right: 0; }
+	
+	#sidebar { width: 300px; }
+	
+	.footer_box_col { width: 296px; margin-right: 36px; }
+	.footer_box_col_last { margin-right: 0; }
+	.header_bottom { padding: 10px; }
+	
+	.single_inside_content img { max-width: 100%; height: inherit; }
+	.single_inside_content iframe { width: 630px; height: 350px;}
+	
+}
+@media only screen and (max-width: 1230px){
+	.container { width: 100%; }
+}
+@media only screen and (max-width: 1020px){
+	.container { width: 100%; }
+}
+@media only screen and (max-width: 830px){
+	.container { width: 100%; }
+	#single_cont { width: 100%; }
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#single_cont { width: 768px; }
+	.container { width: 100%; }
+	.archive_title { margin: 50px 0 40px; }
+	.header_spacing { margin-bottom: 20px; }
+	.header_bottom { padding: 20px; }
+	.slicknav_menu { display: block; position: relative; z-index: 99999; }
+	#header { position: absolute; }
+	#slideshow_cont {  width: 748px; height: 403px; }
+	.slide_box img, .slide_box iframe { width: 748px; height: 403px;  }	
+	
+.header_social { float: right; text-align: center; /*padding-bottom: 15px;*/ max-width: 293px; }
+.header_social img { display: inline-block; margin: 0 2px; }
+	.header_menu { display: none; }
+	.home_box { width: 50%; }
+	.full_logo_cont { float: left; text-align: center; margin-top:-40px;}
+	.list_carousel li {
+		margin: 0 10px 0 0;
+		width: 242px;
+	}
+	.list_carousel li img { width: 242px; height: 232px; }	
+	.list_carousel li iframe { width: 242px; height: 232px; }	
+	.home_left { width: 510px; }
+	
+	.home_box h3 { margin: 15px 0 20px; font-size: 13px; font-weight: 500; text-transform: uppercase;  letter-spacing: 2px; }
+	
+	.home_post_box { width: 181px; margin-right: 8px; }
+	.home_post_box img,
+	.home_post_box iframe { width: 181px; height: 158px; }
+	.home_post_box_last { margin-right: 0; }
+	.home_box iframe { height: 280px; }
+	
+	.archive_cont .home_post_box { margin-right: 6px; margin-bottom: 10px; }
+	.archive_cont .home_post_box_last { margin-right: 0; }		
+	
+	.single_left { width: 470px; margin-right: 15px; margin-left: 15px;}
+	.single_full { width: auto; }
+	
+	.home_blog_box { margin-right: 8px; width: 49%; margin-right: 2%; }
+	.home_blog_box img,
+	.home_blog_box iframe { width: 100%; height: 200px; }
+	.home_blog_box_last { margin-right: 0; }
+	
+	.archive_box { margin-right: 15px; font-size: 12px; width: 239px; margin-bottom: 20px; }
+	.archive_box img,
+	.archive_box iframe { width: 239px; height: 160px; }
+	.archive_box_last { margin-right: 0; }
+	.archive_box_tcell { line-height: 15px; }
+	.archive_box h3 { font-size: 19px; }
+	
+	#sidebar { width: 200px; float: left; }
+	
+	#searchform { width: 190px; position: relative; }
+.t1_search_cont input[type=text] { width: 110px; border:1px solid #ccc; }
+.t1_search_cont input[type=image] { position: absolute; margin: 5px; right: 0;  } 
+.t1_search_cont input[type=submit] { border: none; background-color: #252628; color: #90939C; width: 60px; }
+		
+	
+	.footer_box_col { width: 229px; margin-right: 20px; }
+	
+		.single_inside_content img { max-width: 100%; height: inherit; }
+	.single_inside_content iframe { width: 470px; height: 270px;}
+	
+}
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) { 
+	.container { width: 300px; }
+	#single_cont { width: 300px; }
+	
+	.archive_title { margin: 20px 0 40px; }
+	#searchform { width: 100%; }
+	#header { position: static; width: auto; }
+	.slicknav_menu { display: block; position: relative; z-index: 99999; }
+	.slicknav_menu { /*height: 45px;*/ }
+	#slideshow_cont {  width: 300px; height: 161px; }
+	.slide_box img, .slide_box iframe { width: 300px; height: 161px;  }	
+/*	#header { text-align: center; }	
+	#header { position: absolute; top: 55px; width: 100%;  }*/
+	.header_spacing { display: none; }
+/*	#header .container {  }
+	.logo { float: none; margin: 0; }*/
+	.header_menu { display: none; }
+	
+	
+	.header_menu ul li { margin-right: 20px; }
+	
+	.header_social { float: left;  max-width: 293px; margin-bottom: 10px; }
+.header_social img { display: inline-block; margin: 0 2px; }
+	.header_search { float: none; margin: 15px auto; }
+	.header_bottom { padding: 20px; }
+	.logo_cont { float: left; text-align: center; max-width: 300px; }
+	.full_logo_cont { float: left; width: 280px;  }
+	.header_right_text { float: none; width: auto; width: 280px; margin-left: auto; margin-right: auto; }
+	.slider_text { width: 280px; left: 50%; margin-left: -140px; }
+	.slider_text_inside { padding: 8px 10px; font-size: 16px; }	
+	.slide_prev, .slide_next { width: 20px; height: 54px; margin-top: -10px; }
+	
+	.home_post_box .left { float: none; width: auto;  margin-bottom: 5px; }
+	.home_post_box .left img,
+	.home_post_box .left iframe { width: 300px; height: 127px; }
+	.home_post_box .right { min-height: 50px; width: auto; padding-bottom: 5px; float: none; }
+	.home_post_read_line { width: 180px; }
+	.home_box { /*float: left; width: 555px;*/ /*margin-right: 60px;*/ margin-bottom: 5px; width: 100%; margin: 0 0 10px 0; }
+	.home_box iframe { height: 240px; }
+	.grid-sizer { width: 100%; }
+	.gutter-sizer { width: 0%; }	
+	
+	.home_left { width: auto; float: none; }
+	
+	.home_post_box { float: none; width: auto; margin: 0 auto 20px; }
+	.home_post_box img,
+	.home_post_box iframe { width: 300px; height: 263px; max-width: 100%; }
+	.home_post_box_last { margin-right: auto; }	
+	
+	.archive_cont .home_post_box { margin-right: auto; margin-bottom: 20px; }
+	.archive_cont .home_post_box_last { margin-right: auto; }			
+	.stalac_box { margin-left: 10px; }
+	
+	.single_left { float: none; width: auto; margin-bottom: 25px; }
+	.single_full { width: auto; }
+	
+	.home_blog_box { margin: 0 auto 20px; width: 300px; }
+	.home_blog_box img { width: 100%; height: auto; }
+	.home_blog_box iframe { width: 300px; height: 170px; }
+	.home_blog_box_last { margin-right: auto; }
+	
+	.archive_box { margin: 0; font-size: 12px; width: auto; margin-bottom: 20px; }
+	.archive_box img,
+	.archive_box iframe { width: 300px; height: 201px; }
+	.archive_box_last { margin-right: 0; }
+	.archive_box_tcell { line-height: 15px; }
+	.archive_box h3 { font-size: 19px; }
+	
+	#commentform textarea { max-width: 280px; }		
+	#sidebar { float: none; width: auto; }	
+	.t1_search_cont input[type=text] { width: 210px; }
+	.t1_search_cont input[type=submit] {  width: 80px;  float: right;}		
+	
+	.footer_box_col { float: none; width: auto; padding: 10px 0 10px; margin: 0; }
+	.footer_copyright .left { float: none; margin-bottom: 15px; }
+	.footer_copyright .right { text-align: center; float: none; }	
+	
+	.single_inside_content img { width: 300px; height: 169p }
+	.single_inside_content iframe { width: 300px; height: 169px; }	
+	
+}
