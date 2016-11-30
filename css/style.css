@@ -118,6 +118,7 @@ b, strong {
 	display: inline-block;
 	padding-bottom: 4px;
 	border-bottom: 1px solid #22eedd;
+	font-weight: bold;
 }
 
 
@@ -1336,7 +1337,11 @@ b, strong {
 
 	section#contact { /* Register Form */:  }
 
-		section#contact p.title-desc { margin-bottom: 40px; }
+		section#contact p.title-desc {
+	margin-bottom: 40px;
+	color: #000;
+	font-size: 16px;
+}
 
 		section#contact form { margin-bottom: 40px; }
 
