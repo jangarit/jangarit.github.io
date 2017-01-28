@@ -46,14 +46,13 @@
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 	<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
 function MM_preloadImages() { //v3.0
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
     var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
     if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
 }
 
 function MM_findObj(n, d) { //v4.01
@@ -93,16 +92,15 @@ function MM_swapImage() { //v3.0
 				<ul id="nav" class="full">
 					<li>
 						<a href="about.html">
-							<span class="count hide-on-mobile">01.</span>
-							About
-						▾</a>
+							<span class="count hide-on-mobile">01.</span>							About
+					▾</a>
 						<ul>
                         <!--This is a comment. Comments are not displayed in the browser
 							<li><a href="index-with-iosslider.html">Home w/ Slider</a></li>
 							<li><a href="index-with-flexslider.html">Home w/ Slider 2</a></li>-->
-							<li><a href="contact.html">Contacto</a></li>
-						</ul>
-					</li>
+						  <li><a href="contact.html">Contacto</a></li>
+					  </ul>
+				  </li>
 					<li>
 						<a href="index.html">
 							<span class="count hide-on-mobile">02.</span>
@@ -139,14 +137,14 @@ function MM_swapImage() { //v3.0
 					</li>
 
 					<li>
-   						<a href="index.html">
+   						<a href="HojaDeVida-Julian_Angarita_Bernal.pdf">
 						<!--<a href="archive-blog.html">-->
 							<span class="count hide-on-mobile">04.</span>
 							CV
 						▾</a>
 						<ul>
 							<!--<li><a href="single-blog.html">Hoja de vida</a></li>-->
-   							<li><a href="index.html">Hoja de vida*</a></li>
+   							<li><a href="HojaDeVida-Julian_Angarita_Bernal.pdf">Hoja de vida</a></li>
 						</ul>
 					</li>
 					
@@ -157,113 +155,182 @@ function MM_swapImage() { //v3.0
 
 		<div class="logo-wrap">
 			<div class="container">
-				<div class="desktop-6 columns">
+			  <div class="desktop-6 columns">
 					<h1><a href="index.html" title="Home"><img src="images/logo_text_half.png" alt="" /></a></h1>
 				</div>
 			<!-- // .desktop-6 -->
 
 	          <div class="desktop-6 columns">
 					<p class="site-desc">
-						<span style="font-size: 30px; color: #22eedd;"><strong>Portafolio</strong></span>
-						<!--<br /><span class="font-color-primary">REDES</span>-->
-				</p><!-- // .site-desc -->
+						<span style="font-size: 30px; color: #22eedd;"><strong>Portafolio</strong></span></p>
+					<!-- // .site-desc -->
 			  </div>
               <br><br>
 				        <p style="text-indent: 1.4em;"><a href="https://www.instagram.com/julian.angarita.bernal/" target="_blank" onMouseOver="MM_swapImage('Instagram','','images/instagramroll.png',1)"  onMouseOut="MM_swapImgRestore()"> <img src="images/instagram.png" width="40" height="40" id="Instagram"> </a>&nbsp;&nbsp;<a href="https://www.behance.net/w3l" target="_blank" onMouseOver="MM_swapImage('Behance','','images/behanceroll.png',1)" onMouseOut="MM_swapImgRestore()"><img src="images/behance.png" width="40" height="40" id="Behance"> </a>&nbsp;&nbsp;<a href="https://vimeo.com/w3l" target="_blank" onMouseOver="MM_swapImage('Vimeo','','images/vimeoroll.png',1)" onMouseOut="MM_swapImgRestore()"><img src="images/vimeo.png" width="40" height="40" id="Vimeo"></a></p>
 	        <!-- // .desktop-6 --></div><!-- // .container -->
 		</div><!-- // .logo-wrap -->
-	</section><!-- // #header -->
+</section><!-- // #header -->
 
-	<!-- Contact
+
+	<!-- Works
 	================================================== -->
-	<section id="contact" class="section page">
+	<section id="works">
 		<div class="container">
-
-			<div class="desktop-6 tablet-12 columns">
-
-				<h2 class="border-top">Contacto</h2>
-				<p class="title-desc">Mensaje</p>
-
-				<div id="contact-warning">
-				Error</div><!-- // #contact-warning -->
-				
-				<div id="contact-success">
-					Email enviado, gracias.<br />	
-			  </div><!-- // #contact-warning -->
-				
-				<form name="contactForm" id="contactForm" method="post" action="">
-					<fieldset>
-					
-						<label for="contactName">Nombre <span class="required">*</span></label>
-						<input name="contactName" type="text" id="contactName" size="30" value="" />
-						
-						<br />
-						<label for="contactEmail">Email <span class="required">*</span></label>
-						<input name="contactEmail" type="text" id="contactEmail" size="30" value="" />
-                        
-                        <br />
-						<label for="contactMessage">Mensaje <span class="required">*</span></label>
-						<textarea name="contactMessage" id="contactMessage" rows="6" cols="7"></textarea>
-                        
-                        <br />
-						<label for="contactCaptcha"><strong>10</strong> + <strong>6</strong> = <span class="required">*</span></label>
-						<input name="contactCaptcha" type="text" id="contactCaptcha" size="30" value="" />
-
-						<input name="contactCaptchaAnswer" type="hidden" id="contactCaptchaAnswer" value="16" />
-
-						<br />
-						<label class="placeholder">&nbsp;</label>
-						<input type="submit" class="button full" value="Submit" />
-					</fieldset>
-				</form>
-				
-				<div class="clear"></div>
-
-			</div><!-- // .desktop-6 -->
+			<div class="desktop-12 columns"><div class="border-top"></div></div>
 
 			
-			<div class="desktop-6 tablet-12 nested columns">
+				<a href="p_htc-desire-500.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item first-row">
+						  <h3>HTC Desire 500</h3>
+							<span class="category">Modelado 3D</span>
+
+							<img src="images/1thumb_htc_desire.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
 				
-			  <div class="desktop-6 tablet-12 columns">
-					<h2 class="border-top">Ubicación</h2>
-					<p class="title-desc">Bogotá, Colombia</p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d509017.0628077554!2d-74.38802033748789!3d4.648242203777196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses-419!2sco!4v1478684695492" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div><!-- // .desktop-6 -->
-
-				<div class="clear"></div>
-
-				<div class="desktop-3 tablet-6 mobile-half columns">
-					
-					<div class="box-contact">
-						<h3 class="font-color-primary"><span class="underline">Direccíon</span></h3>
-
-						<p>
-							<span style="font-weight: bold; font-size: 16px;">Bogotá, Colombia</span><br />
-							<span style="font-weight: bold">Dirección:</span> Cll 23 Bis # 28 -21<br />
-			          <span style="font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold;">telefono:</span> (571) 3143102389</p>
-					</div><!-- // .box-contact -->
-
+				<a href="p_entanglement.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item first-row">
+						  <h3>Entanglement</h3>
+							<span class="category">Interactivo</span><img src="images/1thumb_entanglement.jpg" alt="" />
+						</div>
+						<!-- // .item -->
 				</div><!-- // .desktop-3 -->
-
-				<div class="desktop-3 tablet-6 mobile-half columns">
-					
-					<div class="box-contact">
-						<h3 class="font-color-primary"><span class="underline">Email</span></h3>
-
-						<p>
-							<a href="mailto:Julianangaritabernal@gmail.com">Julianangaritabernal@gmail.com</a></p>
-					</div><!-- // .box-contact -->
-
-				</div><!-- // .desktop-3 -->
-
+		  </a>
+				
+				<a href="p_aster1.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item first-row">
+						  <h3>Aster</h3>
+							<span class="category">Animación</span><img src="images/1thumb_aster.jpg" alt="" />
+						</div>
+						<!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
+				
+				<a href="p_cardistry.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item first-row">
+						  <h3>Cardistry</h3>
+							<span class="category">Animación</span><img src="images/1thumb_cardistry.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
+				
 				<div class="clear"></div>
-
-			</div><!-- // .desktop-6 -->
-
+			
+				<a href="p_ferrari.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item">
+							<h3>Ferrari Berlinetta</h3>
+							<span class="category">Modelado 3D</span><img src="images/1thumb_ferrari.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
+				
+				<a href="p_expert.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item">
+						  <h3>Expert At The Card Table (re-edición)</h3>
+							<span class="category">Editorial</span><img src="images/1thumb_expert.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
+				
+				<a href="p_hoc.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item">
+							<h3>HOC</h3>
+							<span class="category">Interactivo</span><img src="images/1thumb_hoc.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
+				
+				<a href="p_extintor.html" class="permalink">
+					<div class="desktop-3 mobile-half columns">
+						<div class="item">
+							<h3>¿Qué es un extintor?</h3>
+							<span class="category">Animación</span><img src="images/1thumb_extintor.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				</a>
+				
+				<div class="clear"></div>
+			
+				<div class="desktop-3 mobile-half columns"><a href="p_chechi.html" class="permalink">
+			    <div class="item">
+			      <h3>Eco</h3>
+			      <span class="category">Video</span><img src="images/1thumb_chechi.jpg" alt="" /></div>
+				</a><a href="chechi.html" class="permalink">
+				    <!-- // .item -->
+			      </a></div>
+		  <a href="p_elemental.html" class="permalink">
+		  <div class="desktop-3 mobile-half columns">
+				  <div class="item">
+				    <h3>Elemental</h3>
+				    <span class="category">Interactivo</span><img src="images/1thumbelemental.jpg" alt="" /> </div>
+				  <!-- // .item -->
+			    </div>
+		  </a><a href="p_hamburguesa.html" class="permalink">
+		  <div class="desktop-3 mobile-half columns">
+				  <div class="item">
+				    <h3>Hamburguesa</h3>
+				    <span class="category">Ilustración</span><img src="images/1thumb_hamburguesa.jpg" alt="" /> </div>
+				  <!-- // .item -->
+		  </div>
+				</a>				<a href="chechi.html" class="permalink"><!-- // .desktop-3 -->
+				</a><a href="elemental.html" class="permalink"><!-- // .desktop-3 -->
+				</a><!-- // .desktop-3 -->
+				
+				
+				<div class="desktop-3 mobile-half columns">
+						<div class="item">
+						  <h3>Pulpo</h3>
+							<span class="category">.Producto</span><a href="p_pulpo.html"><img src="images/1thumb_pulpo.jpg" alt="" /></a>
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				
+				
+				<div class="clear"></div>
+<div class="desktop-3 mobile-half columns">
+		<div class="item">
+			<h3>.</h3>
+			<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
+	    </div><!-- // .item -->
+	  </div><!-- // .desktop-3 -->
+		  
+				
+				<div class="desktop-3 mobile-half columns">
+						<div class="item">
+							<h3>.</h3>
+							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				
+				
+				<div class="desktop-3 mobile-half columns">
+						<div class="item">
+							<h3>.</h3>
+							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				
+				
+				<div class="desktop-3 mobile-half columns">
+						<div class="item">
+							<h3>.</h3>
+							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
+						</div><!-- // .item -->
+					</div><!-- // .desktop-3 -->
+				
+				
+				<div class="clear"></div>
+			
 		</div><!-- // .container -->
-	</section><!-- // section#contact -->
+	</section><!-- // section#works -->
 
-	
 
 
 

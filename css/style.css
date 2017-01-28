@@ -79,7 +79,7 @@ a:focus { color: black; }
 p a,
 p a:visited {
 	line-height: inherit;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 
@@ -119,6 +119,7 @@ b, strong {
 	padding-bottom: 4px;
 	border-bottom: 1px solid #22eedd;
 	font-weight: bold;
+	font-size: 16px;
 }
 
 
@@ -467,11 +468,11 @@ b, strong {
 	}
 
 		ul#nav > li a {
-			color: #aaa;
-			display: block;
-			padding: 18px 0 15px 0;
-			margin: 0 20px;
-			border-bottom: 1px solid #f5f5f5;
+	color: #999;
+	display: block;
+	padding: 18px 0 15px 0;
+	margin: 0 20px;
+	border-bottom: 1px solid #f5f5f5;
 		}
 
 			ul#nav > li a span.count {
@@ -489,8 +490,9 @@ b, strong {
 
 	ul#nav > li:hover,
 	ul#nav > li.hover {
-		background: #111;
-		margin: 0;
+	background: #111;
+	margin: 0;
+	color: #FFF;
 	}
 
 		ul#nav > li:hover a,
@@ -743,11 +745,11 @@ b, strong {
 }
 
 	#works .item span.category {
-		color: #ccc;
-		display: block;
-		font-size: 12px;
-		line-height: 18px;
-		margin-bottom: 10px;
+	color: #666;
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 6px;
 	}
 
 		#works a.permalink:hover span.category { color: #22eedd; }
@@ -1373,14 +1375,17 @@ b, strong {
 				margin-bottom: 15px;
 			}
 
-			section#contact .box-contact p { margin-top: 0; }
+			section#contact .box-contact p {
+	margin-top: 0;
+	font-size: 24px;
+}
 
 		
 		@media screen and (max-width: 767px) { 
 			section#contact .box-contact {
-				font-size: 12px; 
-				line-height: 24px; 
-				margin-bottom: 30px; 
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 30px;
 			}
 		}
 

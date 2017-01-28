@@ -13,14 +13,14 @@
 }
 .container .column,
 .container .columns {
-  float: left;
-  display: inline;
-  padding-left: 20px;
-  padding-right: 20px;
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	float: left;
+	display: inline;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .container .column.nest,
 .container .columns.nest,
