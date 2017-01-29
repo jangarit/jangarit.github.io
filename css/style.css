@@ -42,8 +42,8 @@ body {
 
 @media screen and (max-width: 767px) { 
 	body {
-		font-size: 12px;
-		line-height: 23px;
+	font-size: 12px;
+	line-height: 23px;
 	}
 }
 
@@ -110,7 +110,7 @@ i,
 .italic { font-style: italic; }
 b, strong {
 	font-weight: bold;
-	font-size: 28px;
+	font-size: 18px;
 	font-family: HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -731,13 +731,15 @@ b, strong {
 			3.5 Works
 	---------------------------------------------------*/
 	
-	#works .item { margin-bottom: 40px; }
+	#works .item {
+	margin-bottom: 35px;
+}
 
 		#works .item h3 {
-			color: #555;
-			font-size: 12px;
-			line-height: 22px;
-			font-weight: bold;
+	color: #555;
+	font-size: 12px;
+	line-height: 22px;
+	font-weight: bold;
 		}
 
 		#works a.permalink:hover h3 {
@@ -748,7 +750,7 @@ b, strong {
 	color: #666;
 	display: block;
 	font-size: 12px;
-	line-height: 18px;
+	line-height: 14px;
 	margin-bottom: 6px;
 	}
 
@@ -843,16 +845,16 @@ b, strong {
 		}
 
 		#works.single .box-info {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	font-size: 14px;
-	line-height: 25px;
+	line-height: 24px;
 	text-align: left;
 		}
 			
 			#works.single .box-info p.project-desc {
-				color: #ddd; 
-				font-weight: bold; 
-				margin-top: 0; 
+	color: #666;
+	font-weight: bold;
+	margin-top: 0;
 			}
 
 			#works.single .box-info h4 {
