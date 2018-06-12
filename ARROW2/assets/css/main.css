@@ -310,7 +310,7 @@ input,textarea{
 }
 .landing{
     transition:-webkit-transform .2s ease-out;
-	transform: scale(.12)
+	transform: scale(.3)
 }
 .logo{
     text-transform:capitalize;
