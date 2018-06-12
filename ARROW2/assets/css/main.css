@@ -310,7 +310,7 @@ input,textarea{
 }
 .landing{
     transition:-webkit-transform .2s ease-out;
-	transform: scale(.2)
+	transform: scale(.3)
 }
 .logo{
     text-transform:capitalize;
@@ -706,7 +706,10 @@ input,textarea{
     -webkit-box-pack:center;
     -webkit-justify-content:center;
     -ms-flex-pack:center;
-    justify-content:center
+    justify-content:center;
+    background-image:url("../img/napoleonler.gif");
+	background-repeat: no-repeat;
+	background-position: center; 
 }
 .introduction::before{
     content:"";
@@ -773,6 +776,7 @@ input,textarea{
         animation:none
     }
 }
+
 .about{
     position:relative;
     width:100%;
@@ -806,9 +810,21 @@ input,textarea{
     left:45px;
     bottom:center;
     z-index:0;
-	 max-width: 50%;
+	max-width: 50%;
     height: auto;
     width: auto\9; /* ie8 */
+	
+	position:absolute;
+    left:45px;
+    bottom:center;
+     width:828px;
+    height:581px;
+    margin:0;
+	background-image:url("../img/web-design-visual.png");
+	background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat
+
 }
 .about__content{
     position:relative;
@@ -886,6 +902,91 @@ input,textarea{
         max-width:100%
     }
 }
+
+/* ABOUT2*/
+.about2{
+    position:relative;
+    width:100%;
+    padding:200px 0;
+    background-color:#F3F3F3;
+    overflow:hidden
+}
+.about2__wrapper{
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:end;
+    -webkit-justify-content:flex-end;
+    -ms-flex-pack:end;
+    justify-content:flex-end
+}
+.about2__visual{
+    position:absolute;
+    top:50%;
+    right:52%;
+    -webkit-transform:translateY(-45%);
+    transform:translateY(-45%);
+    width:828px;
+    height:581px;
+    margin:0;
+	background-image:url("../img/app-design-visual.png");
+	background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat
+}
+@media (max-width: 991px){
+    .about2__content h2{
+        font-size:48px
+    }
+    .about2__visual{
+        right:45%;
+        width:741px;
+        height:520px
+    }
+}
+@media (max-width: 767px){
+    .about2{
+        height:525px;
+        padding:60px 0
+    }
+    .about2__wrapper{
+        -webkit-box-pack:center;
+        -webkit-justify-content:center;
+        -ms-flex-pack:center;
+        justify-content:center
+    }
+    .about2__content{
+        text-align:center
+    }
+    .about2__content h2{
+        font-size:32px
+    }
+    .about2__content h2 br{
+        display:none
+    }
+    .about2__visual{
+        top:auto;
+        right:auto;
+        left:50%;
+        bottom:0;
+        -webkit-transform:translateX(-50%);
+        transform:translateX(-50%);
+        width:523px;
+        height:376px
+    }
+}
+@media (max-width: 480px){
+    .about2{
+        height:425px
+    }
+    .about2__visual{
+        width:392px;
+        height:275px
+    }
+}
+/* FIN ABOUT2*/
+
 .app-design{
     position:relative;
     width:100%;
@@ -973,7 +1074,7 @@ input,textarea{
     width:828px;
     height:581px;
     margin:0;
-	background-image:url("../img/Sidd.gif");
+	background-image:url("../img/web-design-visual.png");
 	background-position:center;
     background-size:100%;
     background-repeat:no-repeat
