@@ -339,7 +339,7 @@ input,textarea{
 }
 
 .transform-linkmenu{
-    font-weight:400
+    font-weight:500
 }
 .transform-linkmenu::after{
     content:"";
