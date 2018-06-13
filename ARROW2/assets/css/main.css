@@ -1243,20 +1243,22 @@ input,textarea{
     display:-webkit-flex;
     display:-ms-flexbox;
     display:flex;
-    width:100px;
-    -webkit-box-pack:justify;
+    width:150px;
+    -webkit-box-pack:center;
     -webkit-justify-content:space-between;
-    -ms-flex-pack:justify;
+    -ms-flex-pack:center;
     justify-content:space-between;
-    margin:45px auto 0 auto:
+    margin:45px auto 0 auto;
+	align-items:center;
 }
 .work__navigation-el{
     display:block;
-    width:12px;
-    height:12px;
+    width:20px;
+    height:20px;
     background-color:#AAAAAA;
     border-radius:50%;
     cursor:pointer;
+
 }
 .work__navigation-el--is-active{
     background-color:transparent;
@@ -1390,7 +1392,7 @@ input,textarea{
         -webkit-align-items:center;
         -ms-flex-align:center;
         -ms-grid-row-align:center;
-        align-items:center
+        align-items:center;
     }
     .blog__post{
         width:450px;
