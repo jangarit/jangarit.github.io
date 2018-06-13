@@ -3,10 +3,14 @@
 html{
 	font-family: 'Montserrat', sans-serif;
 	-ms-text-size-adjust:100%;
-    -webkit-text-size-adjust:100%
+    -webkit-text-size-adjust:100%;
+	max-width: 100%;
+    overflow-x: hidden;
 }
 body{
-    margin:0
+    margin:0;
+	max-width: 100%;
+    overflow-x: hidden;
 }
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{
     display:block
@@ -310,7 +314,7 @@ input,textarea{
 }
 .landing{
     transition:-webkit-transform .2s ease-out;
-	transform: scale(.3)
+	transform: scale(.22);
 }
 .logo{
     text-transform:capitalize;
@@ -537,6 +541,32 @@ input,textarea{
 .navigation__burger{
     display:none
 }
+
+/*NUEVO*/
+@media screen and (max-width: 600px) {
+  .navigation a:not(:first-child) {display: none;}
+  .navigation a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation.responsive {position: relative;}
+  .navigation.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navigation.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+/*FIN NUEVO*/
+
+
 @media (max-width: 991px){
     .navigation__cta{
         display:none

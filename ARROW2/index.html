@@ -13,13 +13,23 @@
 <body>
 
 <script> //SCRIPT AUTOHIDENAVBAR
+	
+	function myFunction() {
+    var x = document.getElementById("topnav");
+    if (x.className === "topnav") {
+        x.className += "responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+	
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    document.getElementById("nav").style.top = "0";
+    document.getElementById("topnav").style.top = "0";
   } else {
-    document.getElementById("nav").style.top = "-250px";
+    document.getElementById("topnav").style.top = "-100px";
   }
   prevScrollpos = currentScrollPos;
 }
@@ -34,7 +44,7 @@ var currentScrollPos = window.pageYOffset;
 	</div>
 	<!-- END SECTION: Splashscreen -->
 	<!-- SECTION: Navigation -->
-	<div id="nav" class="navigation">
+	<div id="topnav" class="navigation">
 		<div class="navigation__wrapper wrapper--large">
 		  <a>
 		  <img src="assets/img/logo.png" class="navigation__logo logo" height="10%" width="10%" alt="Logo">
