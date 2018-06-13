@@ -500,7 +500,7 @@ input,textarea{
 
 	}
 	.logo{
-	opacity: 0;
+	display: none;
 	}
 	.landing{
 	transform: scale(.18);
@@ -510,12 +510,13 @@ input,textarea{
 
 @media screen and (max-width: 600px) {
   .navigation{
+  	display: none;
     height:50px;
 	opacity: 0;
 
 	}
 	.logo{
-	opacity: 0;
+	display: none;
 	}
 	.landing{
 	transform: scale(.18);
