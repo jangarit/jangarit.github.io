@@ -317,7 +317,8 @@ input,textarea{
 	transform: scale(.22);
 }
 .logo{
-    text-transform:capitalize;
+	position:sticky;
+
 }
 .logo:hover{
 	opacity: 0.5;
@@ -532,14 +533,13 @@ input,textarea{
     color:#025427;
     text-transform:inherit;
     -webkit-transition:color .2s ease-in-out;
-
-    transition:color .2s ease-in-out
+    transition:color .2s ease-in-out;
 }
 .navigation__list>li a:hover{
 	color: #0053D5;
 }
 .navigation__burger{
-    display:none
+    display:none;
 }
 
 /*NUEVO*/
@@ -648,7 +648,7 @@ input,textarea{
         align-items:center
     }
     .navigation__list>li{
-        overflow:hidden
+        overflow:hidden;
     }
     .navigation__list>li a{
         -webkit-transform:translateY(100%);
@@ -661,13 +661,14 @@ input,textarea{
         transition:transform 0s .4s, -webkit-transform 0s .4s
     }
     .navigation__burger{
-        position:relative;
+        position:absolute;
         display:-webkit-box;
         display:-webkit-flex;
         display:-ms-flexbox;
         display:flex;
-        width:35px;
-        height:27px;
+        width:44px;
+        height:33px;
+		right: 20px;
         -webkit-box-orient:vertical;
         -webkit-box-direction:normal;
         -webkit-flex-direction:column;
@@ -677,7 +678,7 @@ input,textarea{
         -webkit-justify-content:space-between;
         -ms-flex-pack:justify;
         justify-content:space-between;
-        cursor:pointer
+        cursor:pointer;
     }
     .navigation__burger--is-open .navigation__burger-el{
         -webkit-transition:opacity .2s,-webkit-transform .4s;
@@ -1244,12 +1245,12 @@ input,textarea{
     display:-ms-flexbox;
     display:flex;
     width:150px;
-    -webkit-box-pack:center;
+    -webkit-box-pack:justify;
     -webkit-justify-content:space-between;
-    -ms-flex-pack:center;
+    -ms-flex-pack:justify;
     justify-content:space-between;
-    margin:45px auto 0 auto;
-	align-items:center;
+    margin:65px auto 0 auto;
+	align-items:justify;
 }
 .work__navigation-el{
     display:block;
@@ -1279,14 +1280,14 @@ input,textarea{
         top:45px;
         left:0;
         right:0;
-        bottom:45px
+        bottom:45px;
     }
     .work__list-el--is-active{
         -webkit-box-orient:vertical;
         -webkit-box-direction:normal;
         -webkit-flex-direction:column;
         -ms-flex-direction:column;
-        flex-direction:column
+        flex-direction:column;
     }
     .work__content{
         width:auto;
