@@ -1,407 +1,298 @@
-
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
-
-	<!-- Basic Page Needs
-	================================================== -->
-	<meta charset="utf-8">
-	<title>Julian_Angarita_Bernal</title>
-	<meta name="description" content=".">
-	<meta name="author" content="">
-	
-	<!-- Mobile Specific Metas
-	================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
-	<!-- CSS Files
-	* cssreset-min.css 			- CSS reset
-	* typegrid.css				- Responsive grid system
-	* style.css					- Main CSS file
-	
-	Original LESS Stylesheet
-	<link rel="stylesheet/less" type="text/css" href="css/style.less" />
-	================================================== -->
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.8.0/build/cssreset/cssreset-min.css">
-	<link rel="stylesheet" type="text/css" href="css/typegrid.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-
-		
-	<!--[if lt IE 8]>
-		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
-	<![endif]-->
-
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
-
-	<!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<script type="text/javascript">
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
-
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-    </script>
+  <title>Arrow Studios</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Arrow Studios">
+  <meta name="keywords" content="portfolio, html5, sass, jquery">
+  <meta name="author" content="A">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
+<body>
 
-<body onLoad="MM_preloadImages('images/instagramroll.png','images/behanceroll.png','images/vimeoroll.png')">
+<script> //SCRIPT AUTOHIDENAVBAR
+	
+	function myFunction() {
+    var x = document.getElementById("topnav");
+    if (x.className === "topnav") {
+        x.className += "responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+	
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("topnav").style.top = "0";
+  } else {
+    document.getElementById("topnav").style.top = "-100px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+	
 
-
-	<!-- Header - Half Logo
-	================================================== -->
-	<section id="header">
-
-		<!-- * * * * * * * * * * * * * * * * * * * * * * *
-
-			Top Bar & Menu (#nav)
-
-		* * * * * * * * * * * * * * * * * * * * * * * * -->
-		<div class="topbar">
-			<div class="container">
-					
-				<!--
-					A custom jQuery plugin called typeMenu handles the menu
-					Add .hide-on-mobile to <li> elements to hide a specific item on mobile viewports
-				-->
-				<ul id="nav" class="full">
-					<li>
-						<a href="about.html">
-							<span class="count hide-on-mobile">01.</span>							About
-					▾</a>
-						<ul>
-                        <!--This is a comment. Comments are not displayed in the browser
-							<li><a href="index-with-iosslider.html">Home w/ Slider</a></li>
-							<li><a href="index-with-flexslider.html">Home w/ Slider 2</a></li>-->
-						  <li><a href="contact.html">Contacto</a></li>
-					  </ul>
-				  </li>
-					<li>
-						<a href="index.html">
-							<span class="count hide-on-mobile">02.</span>
-							Diseño
-						▾</a>
-						<ul>
-                        	<li class="hide-on-mobile"><a href="index.html">TODOS</a></li>
-
-					<!--ESTOS SON MAS MENUS Y TIPOS DE DIAGRAMACION-->
-							<!--<li><a href="works-stackgrid-images.html">Images Only</a></li>
-                            <li class="hide-on-mobile"><a href="works-stackgrid-with-title.html">Stackgrid</a></li>
-							<li><a href="works-architecture-three-columns.html">Architecture</a></li>
-							<li>
-								<a href="single-photography-sidebar-right.html">Single</a>
-								<ul>
-									<li><a href="single-photography-full-width.html">Full Width</a></li>
-									<li><a href="single-photography-sidebar-left.html">Left Sidebar</a></li>
-								</ul>
-							</li>-->
-						</ul>
-					</li>
-
-					<li>
-						<a href="index.html">
-							<span class="count hide-on-mobile">03.</span>Arte
-						▾</a>
-						<ul>
-                        	<li class="hide-on-mobile"><a href="index.html">TODOS</a></li>
-							<!--ESTO ES POR SI PONGO UNA TIENDA-->
-                            <!--<li><a href="shop-item.html">Tienda item especifico</a></li>
-                            <li><a href="shop.html ">Tienda</a></li>-->
-
-						</ul>
-					</li>
-
-					<li>
-   						<a href="HojaDeVida-Julian_Angarita_Bernal.pdf">
-						<!--<a href="archive-blog.html">-->
-							<span class="count hide-on-mobile">04.</span>
-							CV
-						▾</a>
-						<ul>
-							<!--<li><a href="single-blog.html">Hoja de vida</a></li>-->
-   							<li><a href="HojaDeVida-Julian_Angarita_Bernal.pdf">Hoja de vida</a></li>
-						</ul>
-					</li>
-					
-				</ul><!-- // #nav -->
-
-			</div><!-- // .container -->
-		</div><!-- // .topbar -->
-
-		<div class="logo-wrap">
-			<div class="container">
-			  <div class="desktop-6 columns">
-					<h1><a href="index.html" title="Home"><img src="images/logo_text_half.png" alt="" /></a></h1>
-				</div>
-			<!-- // .desktop-6 -->
-
-	          <div class="desktop-6 columns">
-					<p class="site-desc">	
-						<span style="font-size: 30px; color: #22eedd;"><strong>Portafolio</strong></span></p>
-					<!-- // .site-desc -->
-			  </div>
-              <br><br>
-				        <p style="text-indent: 1.4em;"><a href="https://www.instagram.com/jangaritb/" target="_blank" onMouseOver="MM_swapImage('Instagram','','images/instagramroll.png',1)"  onMouseOut="MM_swapImgRestore()"> <img src="images/instagram.png" width="40" height="40" id="Instagram"> </a>&nbsp;&nbsp;<a href="https://www.behance.net/w3l" target="_blank" onMouseOver="MM_swapImage('Behance','','images/behanceroll.png',1)" onMouseOut="MM_swapImgRestore()"><img src="images/behance.png" width="40" height="40" id="Behance"> </a>&nbsp;&nbsp;<a href="https://vimeo.com/w3l" target="_blank" onMouseOver="MM_swapImage('Vimeo','','images/vimeoroll.png',1)" onMouseOut="MM_swapImgRestore()"><img src="images/vimeo.png" width="40" height="40" id="Vimeo"></a></p>
-	        <!-- // .desktop-6 --></div><!-- // .container -->
-		</div><!-- // .logo-wrap -->
-</section><!-- // #header -->
-
-
-	<!-- Works
-	================================================== -->
-	<section id="works">
-		<div class="container">
-			<div class="desktop-12 columns">
-				
-				<div class="border-top"></div></div>
-					
-					<a href="p_exogenesis.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item first-row">
-						  <h3>Exogénesis</h3>
-							<span class="category">Interactivo</span>
-
-							<img src="images/1thumb_exogenesis.gif" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				<a href="p_homunculos.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item first-row">
-						  <h3>Homunculos</h3>
-							<span class="category">Instalación</span>
-
-							<img src="images/1thumb_homunculos.gif" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-					<a href="p_entanglement.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item first-row">
-						  <h3>Entanglement</h3>
-							<span class="category">Interactivo</span><img src="images/1thumb_entanglement.jpg" alt="" />
-						</div>
-						<!-- // .item -->
-				</div><!-- // .desktop-3 -->
+	<!-- SECTION: Splashscreen -->
+	<div class="splashscreen">
+		<div class="preloader">
+			<span class="preloader__text">Cargando</span>
+		</div>
+	</div>
+	<!-- END SECTION: Splashscreen -->
+	<!-- SECTION: Navigation -->
+	<div id="topnav" class="navigation">
+		<div class="navigation__wrapper wrapper--large">
+		  <a>
+		  <img src="assets/img/logo.png" class="navigation__logo logo" height="10%" width="10%" alt="Logo">
 		  </a>
-				
-				<a href="p_aster1.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item first-row">
-						  <h3>Aster</h3>
-							<span class="category">Animación</span><img src="images/1thumb_aster.jpg" alt="" />
-						</div>
-						<!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-					
-				<div class="clear"></div>
+		  <nav class="navigation__container">
+				<ul class="navigation__list">
+					<li class="transform-linkmenu"><a href="#home">Home</a></li>
+					<li class="transform-linkmenu"><a href="#arrow">Arrow</a></li>
+					<li class="transform-linkmenu"><a href="#clientes">Clientes</a></li>
+					<li class="transform-linkmenu"><a href="#contacto">Contacto</a></li>
+			</ul>
+		  </nav>
+		  <a class="navigation__cta button" href="#0">Login</a>
+			<div class="navigation__burger">
+				<span class="navigation__burger-el navigation__burger-el--top"></span>
+				<span class="navigation__burger-el navigation__burger-el--middle"></span>
+				<span class="navigation__burger-el navigation__burger-el--bottom"></span>
+			</div>
+	  </div>
+	</div>
+	<!-- END SECTION: Navigation 
+	<!-- SECTION: Intro -->
+	<header  class="header">
+		<div  id="home" class="introduction">
+			<h1 class="introduction__content">
+				<!--
+				<span class="introduction__content-el introduction__content-el--name">Arrow Studios</span>
+				<span class="introduction__content-el introduction__content-el--description">Arrow</span>
+				<span class="introduction__content-el introduction__content-el--job">Professional</span>
+				-->
+				<img class="landing" src="assets/img/logo.png" alt="Logo">
 
+			</h1>
+			<svg class="introduction__arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0" y="0" viewBox="0 0 130 65" xml:space="preserve" enable-background="new 0 0 130 65"><g transform="translate(0.000000,65.000000) scale(0.100000,-0.100000)"><path d="M22.2 634c-50-35-40-47 293-349 174-157 323-285 333-285 24 0 635 552 647 585 8 23 6 30-14 46 -13 10-31 19-40 19s-57-37-107-83c-50-45-179-162-287-260l-197-179 -147 134c-319 289-433 388-446 388C50.2 650 34.2 643 22.2 634z"/></g></svg>
+		</div>
+	</header>
+	<!-- END SECTION: Intro -->
+	<main role="main">
+		<!-- SECTION: About -->
+		<!--
+		<section name="arrow" class="about">
+			<div class="about2__wrapper wrapper--large">
+					<div class="about2__content blurb">
+						<h2 class="blurb__heading">Lorem ipsum<br>consectetur</h2>
+						<p class="blurb__copy no-margin">
+						Lorem ipsum dolor sit amet consectetur,<br> 
+						adipiscing elit fringilla quisque, nisl tortor<br>
+						 ad suspendisse.Ultrices nascetur arcu elementum <br>
+						morbi class volutpat, interdum mauris semper <br>
+						ullamcorper neque donec, facilisis praesent, <br>
+						et porta tempus euismod metus pretium.</p>
+					</div>
+			<figure class="about2__visual"></figure>
+			</div>
+		</section>
+		-->
+		<!-- END SECTION: About -->
 		
-				<a href="p_htc-desire-500.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item first-row">
-						  <h3>HTC Desire 500</h3>
-							<span class="category">Modelado 3D</span>
+				<!-- SECTION: about2 -->
+		<section id="arrow" class="about2">
+			<div class="about2__wrapper wrapper--large">
+				<div class="about2__content blurb">
+					<h2 class="blurb__heading">Arrow<br> Studios</h2>
+					<p class="blurb__copy blurb__copy--tight">
+					Lorem ipsum dolor sit amet consectetur, 
+					adipiscing elit fringilla quisque, nisl tortor
+					 ad suspendisse.Ultrices nascetur arcu elementum 
+					morbi class volutpat, interdum mauris semper
+					et porta tempus euismod metus pretium.</p>
+									</div>
+			</div>
+			<figure class="about2__visual"></figure>
+		</section>
+		<!-- END SECTION: about2 -->
+		
+		
+		<!-- SECTION: App Design -->
+		<section class="app-design">
+			<div class="app-design__wrapper wrapper--large">
+				<div class="app-design__content blurb">
+					<h2 class="blurb__heading">Producción<br> Audiovisual</h2>
+					<p class="blurb__copy blurb__copy--tight">						
+					Lorem ipsum dolor sit amet consectetur, 
+					adipiscing elit fringilla quisque, nisl tortor
+					ad suspendisse.Ultrices nascetur arcu elementum</p>
+					<a class="transform-link" href="#0">Ver proyecto</a>
+				</div>
+			</div>
+			<figure class="app-design__visual"></figure>
+		</section>
+		<!-- END SECTION: App Design -->
+		<!-- SECTION: Web Design -->
+		<section class="web-design">
+			<div class="web-design__wrapper wrapper--small">
+				<div class="web-design__content blurb">
+					<h2 class="blurb__heading">Dirección <br>de Arte</h2>
+					<p class="blurb__copy blurb__copy--tight">
+					Lorem ipsum dolor sit amet consectetur, 
+					adipiscing elit fringilla quisque, nisl tortor
+					ad suspendisse.Ultrices nascetur arcu elementum</p>
+					<a class="transform-link" href="#0">Ver proyecto</a>
+				</div>
+			</div>
+			<figure class="web-design__visual"></figure>
+		</section>
+		<!-- END SECTION: Web Design -->
+		<!-- SECTION: Work -->
+		<section id="clientes" class="work">
+			<h2 class="work__heading title">Ultimos Proyectos</h2>
+			<div class="work__wrapper wrapper--large">
+			  <ul class="work__list">
+					<li class="work__list-el work__list-el--is-active">
+						<div class="work__content">
+							<div class="work__content-blurb blurb blurb--framed">
+								<h3 class="blurb__heading">Proyecto 1<br>Web Design</h3>
+								<p class="blurb__copy">Lorem ipsum dolor sit amet consectetur adipiscing elit sagittis, nibh quisque ornare et taciti eu. Cursus venenatis tempus taciti semper facilisis nostra vulputate ante nisi congue ligula fusce, eget at proin convallis hac aliquet pellentesque odio ornare torquent. </p>
+							</div>
+							<a class="transform-link" href="#0">Ver proyecto</a>
+						</div>
+						<div class="work__visual">
+							<img src="assets/img/work-strategik.jpg" alt="Strategik INC">
+						</div>
+					</li>
+					<li class="work__list-el">
+						<div class="work__content">
+							<div class="work__content-blurb blurb blurb--framed">
+								<h3 class="blurb__heading">Proyecto 2<br>Web Design</h3>
+								<p class="blurb__copy">Lorem ipsum dolor sit amet consectetur adipiscing elit sagittis, nibh quisque ornare et taciti eu. Cursus venenatis tempus taciti semper facilisis nostra vulputate ante nisi congue ligula fusce, eget at proin convallis hac aliquet pellentesque odio ornare torquent.</p>
+							</div>
+							<a class="transform-link" href="#0">Ver proyecto</a>
+						</div>
+						<div class="work__visual">
+							<img src="assets/img/work-eostre.jpg" alt="Ēostre UI Kit">
+						</div>
+					</li>
+					<li class="work__list-el">
+						<div class="work__content">
+							<div class="work__content-blurb blurb blurb--framed">
+								<h3 class="blurb__heading">Proyecto 3<br>App Design</h3>
+								<p class="blurb__copy">Lorem ipsum dolor sit amet consectetur adipiscing elit sagittis, nibh quisque ornare et taciti eu. Cursus venenatis tempus taciti semper facilisis nostra vulputate ante nisi congue ligula fusce, eget at proin convallis hac aliquet pellentesque odio ornare torquent.</p>
+							</div>
+							<a class="transform-link" href="#0">Ver proyecto</a>
+						</div>
+						<div class="work__visual">
+							<img src="assets/img/work-go-outside.jpg" alt="Go Outside App">
+						</div>
+					</li>
+				</ul>
+				<ul class="work__navigation">
+					<li class="work__navigation-el work__navigation-el--is-active"></li>
+					<li class="work__navigation-el"></li>
+					<li class="work__navigation-el"></li>
+				</ul>
+			</div>
+		</section>
+		<!-- END SECTION: Work -->
+		<!-- SECTION: Blog -->
+		<section id="blog" class="blog">
+			<h2 class="blog__heading title">Equipo</h2>
+			<div class="blog__wrapper wrapper--large">
+				<article class="blog__post">
+					<div class="blog__post-thumbnail">
+						<img src="assets/img/blog-post-1.jpg" alt="Man viewing work plans">
+					</div>
+					<div class="blog__post-excerpt">
+						<h3>Persona 1</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sagittis, nibh quisque ornare et taciti eu.</p>
+						<a class="transform-link" href="#0">Ver proyectos</a>
+					</div>
+				</article>
+				<article class="blog__post">
+					<div class="blog__post-thumbnail">
+						<img src="assets/img/blog-post-2.jpg" alt="Man hanging pictures">
+					</div>
+					<div class="blog__post-excerpt">
+						<h3>Persona 2</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sagittis, nibh quisque ornare et taciti eu.</p>
+						<a class="transform-link" href="#0">Ver proyectos</a>
+					</div>
+				</article>
+				<article class="blog__post">
+					<div class="blog__post-thumbnail">
+						<img src="assets/img/blog-post-3.jpg" alt="Men working at a desk">
+					</div>
+					<div class="blog__post-excerpt">
+						<h3>Persona 3</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sagittis, nibh quisque ornare et taciti eu.</p>
+						<a class="transform-link" href="#0">Ver proyectos</a>
+					</div>
+				</article>
+			</div>
+			<div class="blog__view-more">
+				<a class="button blog__view-more--el" href="#0">Ver más</a>
+			</div>
+		</section>
+		<!-- END SECTION: Blog -->
+		<!-- SECTION: Contact -->
+		<section id="contacto" class="contact">
+			<h2 class="contact__heading title">Contacto</h2>
+			<div class="contact__wrapper wrapper--large">
+				<div class="contact__visual">
+					<img src="assets/img/contact-visual.png" alt="Ubicación">
+				</div>
+				<!-- Simple form setup: formspree.io -->
+				<form class="contact__form">
+					<input class="contact__form-el contact__form-el--name" type="text" placeholder="Su nombre" spellcheck="false">
+					<input class="contact__form-el contact__form-el--email" type="email" placeholder="Su Email" spellcheck="false">
+					<textarea class="contact__form-el contact__form-el--message" placeholder="Su mensaje"></textarea>
+					<input class="contact__form-el contact__form-el--submit" type="submit" value="Enviar">
+				</form>
+			</div>
+		</section>
+		<!-- END SECTION: Contact -->
+	</main>
+	<!-- SECTION: Footer -->
+	<footer class="footer">
+	  <div class="footer__wrapper wrapper--large">
+		  <p class="footer__copyright no-margin">&copy; 2018</p>
+			<a class="footer__logo logo" href="#home">Arrow Studios</a>
+			<a class="footer__arrow" href="#home">
+				<svg class="footer__arrow-el" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_2" x="0" y="0" viewBox="0 0 130 65" xml:space="preserve" enable-background="new 0 0 130 65"><g transform="translate(0.000000,65.000000) scale(0.100000,-0.100000)"><path d="M315.4 365c-336-305-345-315-290-351 18-12 32-14 45-8 10 5 145 123 300 262l281 253 196-178c108-98 237-215 287-260 50-46 98-83 107-83s27 9 40 19c20 16 22 23 14 46 -12 33-623 585-647 585C638.4 650 489.4 522 315.4 365z"/></g></svg>
+			</a>
+		</div>
+	</footer>
+	<!-- END SECTION: Footer -->
 
-							<img src="images/1thumb_htc_desire.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				
-				
-				<a href="p_hoc.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3>HOC</h3>
-							<span class="category">Interactivo</span><img src="images/1thumb_hoc.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				<a href="p_elemental.html" class="permalink">
-		  <div class="desktop-3 mobile-half columns">
-				  <div class="item">
-				    <h3>Elemental</h3>
-				    <span class="category">Interactivo</span><img src="images/1thumbelemental.jpg" alt="" /> </div>
-				  <!-- // .item -->
-			    </div>
-			    </a>
-						<a href="p_ferrari.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3>Ferrari Berlinetta</h3>
-							<span class="category">Modelado 3D</span><img src="images/1thumb_ferrari.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-										
-				<div class="clear"></div>	
-				
-				<a href="p_chechi.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item">
-						  <h3>ECO</h3>
-							<span class="category">Video</span><img src="images/1thumb_chechi.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				<a href="p_expert.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item">
-						  <h3>Expert At The Card Table (re-edición)</h3>
-							<span class="category">Editorial</span><img src="images/1thumb_expert.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				<a href="p_cardistry.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item first-row">
-						  <h3>Cardistry</h3>
-							<span class="category">Animación</span><img src="images/1thumb_cardistry.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				<a href="p_extintor.html" class="permalink">
-					<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3>¿Qué es un extintor?</h3>
-							<span class="category">Animación</span><img src="images/1thumb_extintor.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				</a>
-				
-				<div class="clear"></div>
-		  
-		  		<a href="p_hamburguesa.html" class="permalink">
-		  			<div class="desktop-3 mobile-half columns">
-				  		<div class="item">
-				    		<h3>Hamburguesa</h3>
-				    		<span class="category">Ilustración</span><img src="images/1thumb_hamburguesa.jpg" alt="" />
-				    	</div>
-				  <!-- // .item -->
-		  			</div>
-		  		</a>
-		  					
-				<a href="elemental.html" class="permalink"><!-- // .desktop-3 -->
-				</a><!-- // .desktop-3 -->
-				
-				
-				<div class="desktop-3 mobile-half columns">
-						<div class="item">
-						  <h3>Pulpo</h3>
-							<span class="category">.Producto</span><a href="p_pulpo.html"><img src="images/1thumb_pulpo.jpg" alt="" /></a>
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				
-				
-				<div class="clear"></div>
-					<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3></h3>
-							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-		  
-				
-				<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3></h3>
-							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				
-				
-				<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3></h3>
-							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				
-				
-				<div class="desktop-3 mobile-half columns">
-						<div class="item">
-							<h3></h3>
-							<span class="category">.</span><img src="images/1thumb_blank.jpg" alt="" />
-						</div><!-- // .item -->
-					</div><!-- // .desktop-3 -->
-				
-				
-				<div class="clear"></div>
-			
-		</div><!-- // .container -->
-	</section><!-- // section#works -->
-
-
-
-
-	<!-- Footer
-	================================================== -->
-	<section id="footer">
-	  <div class="container">
-	    <p align="center">Copyright &copy; <a href="http://www.typebig.com" class="italic">Typebig</a> modificado por <span style="color: #22eedd"><a href="index.html" class="italic">JulianAngaritaBernal</a></span></p>
-      </div>
-	</section><!-- // section#footer -->
-
-
-	<!-- JS
-	================================================== -->
-	<!-- 
-		Flexslider 2.1 has known issues of manualControls setting with jQuery 1.9~
-		Use jQuery 1.8 until Flexslider 2.2 stable version is released
-	-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-	<script src="js/jQuery.BlackAndWhite.min.js"></script>
-	<script src="js/modernizr.js"></script>
-	<script src="js/less-1.4.0.min.js"></script>
-	<script src="js/jquery.typeMenu.js"></script>
-	<script src="js/jquery.typeSticky.js"></script>
-
-
-	
-
-	
-
-
-	
-
-
-	<script src="js/jquery.custom.js"></script>
-
-
-<!-- End Document
-================================================== -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- jQuery local fallback -->
+	<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+	<script src="assets/js/functions-min.js"></script>
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
+	<!--
+	<script>
+	(function(b, o, i, l, e, r) {
+		b.GoogleAnalyticsObject = l;
+		b[l] || (b[l] =
+			function() {
+				(b[l].q = b[l].q || []).push(arguments)
+			});
+		b[l].l = +new Date;
+		e = o.createElement(i);
+		r = o.getElementsByTagName(i)[0];
+		e.src = '//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e, r)
+	}(window, document, 'script', 'ga'));
+	ga('create', 'UA-XXXXX-X', 'auto');
+	ga('send', 'pageview');
+	</script>
+	-->	
 </body>
 </html>
