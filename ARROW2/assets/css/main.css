@@ -400,7 +400,7 @@ input,textarea{
     max-width:300px;
 }
 .title{
-    margin:0 0 45px 0;
+    margin:0 0 25px 0;
     color:#585858;
     font-size:58px;
     font-weight:800;
@@ -1284,7 +1284,7 @@ input,textarea{
     -webkit-justify-content:space-between;
     -ms-flex-pack:justify;
     justify-content:space-between;
-    margin:55px auto 0 auto;
+    margin:15px auto 0 auto;
 	align-items:justify;
 }
 .work__navigation-el{
