@@ -1,1 +1,0 @@
-https://jangarit.github.io/CANVASFILMS/index.html
