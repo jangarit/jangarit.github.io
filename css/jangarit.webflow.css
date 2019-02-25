@@ -206,7 +206,7 @@ body {
     clear: none;
   }
   .section {
-    display: none;
+    display: block;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
