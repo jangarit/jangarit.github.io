@@ -164,6 +164,10 @@ body {
   font-family: Exo, sans-serif;
 }
 
+.div-block.vids {
+  display: block;
+}
+
 .body-3 {
   background-color: #000;
   font-family: Exo, sans-serif;
@@ -891,6 +895,11 @@ body {
 .link-2 {
   background-color: #fff;
   font-weight: 600;
+}
+
+.div_videoscorp {
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 @media screen and (max-width: 991px) {
