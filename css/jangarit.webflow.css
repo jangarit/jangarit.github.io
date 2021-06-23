@@ -1020,6 +1020,11 @@ body {
   .heading-8.white {
     font-size: 25px;
   }
+
+  .div_videoscorp {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1289,13 +1294,6 @@ body {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-  }
-
-  .youtube-2 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
   }
 
   .div-block-4-copy {
