@@ -782,6 +782,37 @@ body {
   background-size: auto, cover;
 }
 
+.div-artista.artka.crystal1 {
+  background-image: url('../images/1.gif');
+}
+
+.div-artista.artka.crystal1:hover {
+  background-image: url('../images/1.gif'), -webkit-gradient(linear, left top, left bottom, from(null), to(null));
+  background-image: url('../images/1.gif'), linear-gradient(180deg, null, null);
+  background-position: 50% 50%, 0px 0px;
+}
+
+.div-artista.artka.crystal2 {
+  background-image: url('../images/2.gif');
+}
+
+.div-artista.artka.crystal2:hover {
+  background-image: url('../images/2.gif'), -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
+  background-image: url('../images/2.gif'), linear-gradient(180deg, transparent, transparent);
+  background-position: 50% 50%, 0px 0px;
+  background-size: auto, auto;
+}
+
+.div-artista.artka.crystal3 {
+  background-image: url('../images/3.gif');
+}
+
+.div-artista.artka.crystal3:hover {
+  background-image: url('../images/3.gif'), -webkit-gradient(linear, left top, left bottom, from(null), to(null));
+  background-image: url('../images/3.gif'), linear-gradient(180deg, null, null);
+  background-position: 50% 50%, 0px 0px;
+}
+
 .div-artista.soulcollector {
   background-image: url('../images/4.jpg');
 }
@@ -2153,6 +2184,28 @@ body {
     grid-row-start: 1;
     -ms-grid-row-span: 1;
     grid-row-end: 2;
+  }
+
+  #w-node-_9337c169-e2c1-ca99-24b3-158f026bf1f5-3471132e {
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    -ms-grid-column-span: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 1;
+    grid-row-start: 1;
+    -ms-grid-row-span: 1;
+    grid-row-end: 2;
+  }
+
+  #w-node-_9337c169-e2c1-ca99-24b3-158f026bf1f7-3471132e {
+    -ms-grid-column: 2;
+    grid-column-start: 2;
+    -ms-grid-column-span: 1;
+    grid-column-end: 3;
+    -ms-grid-row: 2;
+    grid-row-start: 2;
+    -ms-grid-row-span: 1;
+    grid-row-end: 3;
   }
 }
 
