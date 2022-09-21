@@ -835,6 +835,10 @@ body {
   background-size: auto, cover;
 }
 
+.div-artista.adidas.hide {
+  display: none;
+}
+
 .div-artista.gasmask {
   background-image: url('../images/MASK_Perspective_02-11-compressor.png');
 }
