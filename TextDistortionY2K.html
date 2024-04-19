@@ -1,0 +1,363 @@
+<div id="page-wrap">
+
+  <div id="canvas"></div>
+
+  <div class="curtain" data-vs-id="mouse-distortion-vs" data-fs-id="mouse-distortion-fs">
+    <canvas id="mouse-coords-canvas" data-sampler="canvasTexture"></canvas>
+    <img src="https://jangarit.github.io/Header-Desktop-Retina.jpg" data-sampler="distortedTexture" crossorigin="anonymous" />
+  </div>
+</div>
+
+<script id="mouse-distortion-vs" type="x-shader/x-vertex">
+  #ifdef GL_ES
+
+            precision mediump float;
+            #endif
+
+            // default mandatory variables
+            attribute vec3 aVertexPosition;
+            attribute vec2 aTextureCoord;
+
+            uniform mat4 uMVMatrix;
+            uniform mat4 uPMatrix;
+          
+      uniform mat4 distortedTextureMatrix;
+
+            // custom variables
+            varying vec3 vVertexPosition;
+            varying vec2 vTextureCoord;
+      varying vec2 vDistortedTextureCoord;
+
+            varying vec2 vDistortionEffect;
+  
+          
+            uniform vec2 uMousePosition;
+
+            void main() {
+
+                vec3 vertexPosition = aVertexPosition;
+
+                gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+
+                // varyings
+                vTextureCoord = aTextureCoord;
+          vDistortedTextureCoord = (distortedTextureMatrix * vec4(aTextureCoord, 0.0, 1.0)).xy;
+                vVertexPosition = vertexPosition;
+
+                // distortion effect is calculated in the vertex shader
+                vDistortionEffect = uMousePosition - vec2(vertexPosition.x, vertexPosition.y);
+            }
+        </script>
+
+<script id="mouse-distortion-fs" type="x-shader/x-fragment">
+
+  #ifdef GL_ES
+            precision mediump float;
+            #endif
+
+            varying vec3 vVertexPosition;
+            varying vec2 vTextureCoord;
+      varying vec2 vDistortedTextureCoord;
+
+            varying vec2 vDistortionEffect;
+
+            uniform sampler2D canvasTexture;
+            uniform sampler2D distortedTexture;
+
+            uniform vec2 uMousePosition;
+            uniform vec2 uResolution;
+
+            void main( void ) {
+                // get our texture coords
+                vec2 textureCoords = vec2(vTextureCoord.x, vTextureCoord.y);
+
+                // we gonna use the RGB value of our canvas to calculate the distortion effect
+                vec4 distortionMap = texture2D(canvasTexture, textureCoords);
+
+                // ZOOM IN
+                // if we add the distortion to the texture coords it will create a zoom in distortion effect
+                vec2 distortedTextureCoords = vDistortedTextureCoord + distortionMap.r * vDistortionEffect / 4.0;
+
+                // ZOOM OUT
+                // if we substract the distortion to the texture coords it will create a zoom out distortion effect
+            //vec2 distortedTextureCoords = vDistortedTextureCoord - distortionMap.r * vDistortionEffect / 5.0;
+
+                // add a little chromatic aberration
+                vec4 redDistortion = texture2D(distortedTexture, distortedTextureCoords + distortionMap.r / (uResolution.x / 0.1));
+                vec4 greenDistortion = texture2D(distortedTexture, distortedTextureCoords);
+                vec4 blueDistortion = texture2D(distortedTexture, distortedTextureCoords - distortionMap.r / (uResolution.x / 0.1)); 
+
+                // first line is the final result without chromatic aberration, second line is what is drawn on the canvas texture if you want to have a look
+                //vec4 finalColor = texture2D(distortedTexture, distortedTextureCoords);
+                //vec4 finalColor = texture2D(canvasTexture, textureCoords);
+
+                vec4 finalColor = vec4(redDistortion.r, greenDistortion.g, blueDistortion.b, 1.0);
+
+                gl_FragColor = finalColor;
+
+  
+            }
+      
+</script>
+
+<script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>
+
+<style>
+@media screen {
+
+    html, body {
+
+        min-height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-size: 18px;
+        font-family: Verdana, sans-serif;
+        background: #000000;
+        line-height: 1.4;
+
+        overflow: hidden;
+    }
+
+    #page-wrap {
+                  filter: blur(0.00rem);
+
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #canvas {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+    }
+
+
+    .curtain {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .curtain img, .curtain canvas {
+        display: none;
+    }
+
+}
+</style>
+
+<script>
+
+const FADING_SPEED = 0.015;
+const INERTIA_LENGTH = 0; 
+const INERTIA_DECELERATION = 0.04;
+const INERTIA_INTERVAL = 1;
+
+
+var planeElements = document.getElementsByClassName("curtain");
+
+
+var canvasContainer = document.getElementById("canvas");
+
+
+var pixelRatio = window.devicePixelRatio ? window.devicePixelRatio : 1.0;
+
+var mousePosition = {
+    x: -10000,
+    y: -10000,
+};
+
+var mouseAttr = [];
+var mouseInertia = [];
+
+var mouseCanvas = document.getElementById("mouse-coords-canvas");
+var mouseCanvasContext = mouseCanvas.getContext("2d", { alpha: false });
+
+function resizeMouseCanvas() {
+    mouseCanvas.width = planeElements[0].clientWidth * pixelRatio;
+    mouseCanvas.height = planeElements[0].clientHeight * pixelRatio;
+
+    mouseCanvasContext.width = planeElements[0].clientWidth * pixelRatio;
+    mouseCanvasContext.height = planeElements[0].clientHeight * pixelRatio;
+  
+     mouseCanvasContext.scale(pixelRatio, pixelRatio);
+}
+
+function drawGradientCircle(pointerSize, circleAttributes) {
+    mouseCanvasContext.beginPath();
+
+    var gradient = mouseCanvasContext.createRadialGradient(circleAttributes.x, circleAttributes.y, 0, circleAttributes.x, circleAttributes.y, pointerSize);
+
+    gradient.addColorStop(0, 'rgba(255, 255, 255, ' + circleAttributes.opacity + ')');
+
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+    mouseCanvasContext.fillStyle = gradient;
+
+    mouseCanvasContext.arc(circleAttributes.x, circleAttributes.y, pointerSize, 0, 5 * Math.PI, false);
+    mouseCanvasContext.fill();
+    mouseCanvasContext.closePath();
+}
+
+function animateMouseCanvas() {
+    var pointerSize = window.innerWidth > window.innerHeight ? Math.floor(window.innerHeight / 4) : Math.floor(window.innerWidth / 4);
+
+    mouseCanvasContext.clearRect(0, 0, mouseCanvas.width, mouseCanvas.height);
+
+    mouseCanvasContext.rect(0, 0, mouseCanvas.width, mouseCanvas.height);
+    mouseCanvasContext.fill();
+    mouseCanvasContext.closePath();
+
+    for(var i = 0; i < mouseAttr.length; i++) {
+        drawGradientCircle(pointerSize, mouseAttr[i]);
+    }
+
+    for(var i = 0; i < mouseInertia.length; i++) {
+        drawGradientCircle(pointerSize, mouseInertia[i]);
+    }
+}
+
+resizeMouseCanvas();
+
+
+
+var webGLCurtain = new Curtains({
+  container: "canvas"
+});
+
+var params = {
+    uniforms: {
+        resolution: { 
+            name: "uResolution",
+            type: "2f", 
+            value: [pixelRatio * planeElements[0].clientWidth, pixelRatio * planeElements[0].clientHeight],
+        },
+        mousePosition: { 
+            name: "uMousePosition",
+            type: "2f", 
+            value: [mousePosition.x, mousePosition.y],
+        },
+    }
+}
+
+var plane = webGLCurtain.addPlane(planeElements[0], params);
+
+plane.onReady(function() {
+
+    window.addEventListener("resize", function(e) {
+        plane.uniforms.resolution.value = [pixelRatio * planeElements[0].clientWidth, pixelRatio * planeElements[0].clientHeight];
+        resizeMouseCanvas();
+    });
+
+    document.addEventListener("mousemove", function(e) {
+        handleMovement(e, plane);
+    });
+
+    document.addEventListener("touchmove", function(e) {
+        handleMovement(e, plane);
+    });
+
+}).onRender(function() {
+
+    for(var i = 0; i < mouseAttr.length; i++) {
+        mouseAttr[i].opacity -= FADING_SPEED;
+
+        if(mouseAttr[i].opacity <= 0) {
+            mouseAttr.splice(i, 1);
+        }
+    }
+
+    for(var i = 0; i < mouseInertia.length; i++) {
+        mouseInertia[i].opacity -= FADING_SPEED;
+
+        if(mouseInertia[i].opacity <= 0) {
+            mouseInertia.splice(i, 1);
+        }
+    }
+
+    animateMouseCanvas();
+});
+
+
+function handleInertia(index, mouseAttributes, oldMouseAttr) {
+    var inertiaEffect = 1 - (index * INERTIA_DECELERATION);
+
+    setTimeout(function() {
+
+        var inertiaAttributes = {
+            x: mouseAttributes.x + (oldMouseAttr.velocity.x * (index + 1) * inertiaEffect),
+            y: mouseAttributes.y + (oldMouseAttr.velocity.y * (index + 1) * inertiaEffect),
+            opacity: 1,
+            velocity: {
+                x: 0,
+                y: 0,
+            }
+        };
+
+        mouseInertia.push(inertiaAttributes);
+    }, index * INERTIA_INTERVAL);
+}
+
+function handleMovement(e, plane) {
+
+    if(e.targetTouches) {
+
+        mousePosition.x = e.targetTouches[0].clientX;
+        mousePosition.y = e.targetTouches[0].clientY;
+    }
+    else {
+        mousePosition.x = e.clientX;
+        mousePosition.y = e.clientY;
+    }
+
+    var mouseAttributes = {
+        x: mousePosition.x - planeElements[0].getBoundingClientRect().left,
+        y: mousePosition.y - planeElements[0].getBoundingClientRect().top,
+        opacity: 1,
+        velocity: {
+            x: 0,
+            y: 0,
+        }
+    }
+
+    if(mouseAttr.length > 1) {
+        mouseAttributes.velocity = {
+            x: mouseAttributes.x - mouseAttr[mouseAttr.length - 1].x,
+            y: mouseAttributes.y - mouseAttr[mouseAttr.length - 1].y,
+        };
+    }
+
+    if(mouseAttr.length > 2) {
+
+        if(
+            Math.abs(mouseAttributes.velocity.x) + Math.abs(mouseAttributes.velocity.y) < 10
+            && Math.abs(mouseAttr[mouseAttr.length - 1].velocity.x) + Math.abs(mouseAttr[mouseAttr.length - 1].velocity.y) > 10
+        ) {
+
+            for(var i = 0; i < INERTIA_LENGTH; i++) {
+                handleInertia(i, mouseAttributes, mouseAttr[mouseAttr.length - 1]);
+            }
+
+        }
+        else if(
+            Math.abs(mouseAttributes.velocity.x) + Math.abs(mouseAttributes.velocity.y) < 5
+            && Math.abs(mouseAttr[mouseAttr.length - 2].velocity.x) + Math.abs(mouseAttr[mouseAttr.length - 2].velocity.y) > 30
+        ) {
+
+            for(var i = 0; i < INERTIA_LENGTH; i++) {
+                handleInertia(i, mouseAttributes, mouseAttr[mouseAttr.length - 2]);
+            }
+
+        }
+    }
+
+    mouseAttr.push(mouseAttributes);
+
+    var mouseCoords = plane.mouseToPlaneCoords(mousePosition.x, mousePosition.y);
+    plane.uniforms.mousePosition.value = [mouseCoords.x, mouseCoords.y];
+}
+</script>
