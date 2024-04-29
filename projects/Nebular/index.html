@@ -1,0 +1,128 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+<!-- you might have to change the version number in the future -->
+<script>
+  // Array of colors
+  let pcolors = ["#10203B", "#146664", "#B0D8DB", "#E9B983"];
+  const numParticles = 100;
+  const particles = [];
+  // Strength of attraction force
+  const attractionStrength = 0.05;
+  var attractCenterX;
+  var attractCenterY;
+  //const scaling = 0.2;
+  let img; // Variable to store the image
+  let imageSizeX; // Initial size of the image
+  let imageSizeY; // Initial size of the image
+  function preload() {
+    // Load an image (replace 'imagePath' with the path to your image file)
+    img = loadImage('images/Nebular_EAR4096x.png');
+  }
+
+  function setup() {
+    // Create a canvas that fills the entire window
+    let cnv = createCanvas(windowWidth, windowHeight);
+    // Calculate the initial size of the image based on the canvas dimensions
+    // imageSizeX = width * scaling; // Adjust the scaling factor (0.4) as needed
+    imageSizeX = (img.width / img.height) * imageSizeY; // Maintain image proportions
+    imageSizeY = (img.height / img.width) * imageSizeX; // Maintain image proportions
+    // Define center of attraction 
+    cnv.style("display", "block");
+    cnv.style("position", "absolute");
+    cnv.style("inset", 0);
+    cnv.style("z-index", -1);
+    // Spawn a new particle at the mouse position
+    for (let i = 0; i < numParticles; i++) {
+      // Change 5 to your desired spawn rate
+      if (i % 5 === 0) {
+        // Start particles from the top
+        particles.push(new Particle(random(0, windowWidth / 2), random(0, -10)));
+      }
+    }
+  }
+
+  function draw() {
+    background('#EFE0CE');
+    // Calculate the x-coordinate to align the image to the right
+    let xPosition = width - imageSizeX; // Align to the right edge of the canvas
+    // Calculate the y-coordinate to vertically center the image
+    let yPosition = 0; // Centered vertically
+    // Draw the image
+    // Clear the background on each frame  
+    this.attractCenterX = xPosition + imageSizeX / 2;
+    this.attractCenterY = windowHeight / 2;
+    imageSizeY = windowHeight; // Calculate image height based on windowHeight
+    imageSizeX = (img.width / img.height) * imageSizeY; // Maintain image proportions
+    image(img, xPosition, yPosition, imageSizeX, imageSizeY);
+    // Spawn a new particle at the mouse position
+    let centerForce = createVector(attractCenterX, attractCenterY);
+    particles.forEach((particle, index) => {
+      particle.update(centerForce);
+      particle.drawParticle();
+    });
+    // Spawn a new particle at the mouse position
+    particles.forEach((particle, index) => {
+      particle.update(centerForce);
+      particle.drawParticle();
+    });
+  }
+
+  function windowResized() {
+    let xPosition = width - imageSizeX; // Align to the right edge of the canvas
+    // Calculate the y-coordinate to vertically center the image
+    let yPosition = 0; // Centered vertically
+    // Draw the image
+    // Clear the background on each frame  
+    this.attractCenterX = xPosition + imageSizeX / 2;
+    this.attractCenterY = windowHeight / 2;
+    imageSizeY = windowHeight; // Calculate image height based on windowHeight
+    imageSizeX = (img.width / img.height) * imageSizeY; // Maintain image proportions
+    resizeCanvas(windowWidth, windowHeight);
+    image(img, xPosition, yPosition, imageSizeX, imageSizeY);
+  }
+  class Particle {
+    constructor(x, y) {
+      this.position = createVector(x, y);
+      this.velocity = createVector(random(-2, 2), random(1, 3)); // Random horizontal velocity and downward velocity
+      this.size = random(2, 9);
+      this.color = random(pcolors); // Select a random color from the array
+    }
+    update(centerForce) {
+      // Calculate the force vector towards the center
+      let force = p5.Vector.sub(centerForce, this.position);
+      force.setMag(attractionStrength); // Set the magnitude of the force
+      // Limit the velocity so the particles don't go too fast
+      this.velocity.add(force); // Add the force to the particle's velocity
+      this.position.add(this.velocity);
+      this.velocity.limit(1);
+      this.detectEdges();
+    }
+    detectEdges() {
+      // Bounce off the edges of the canvas
+      if (this.position.x < 0 || this.position.x > width) {
+        this.velocity.x *= -1;
+      }
+      if (this.position.y < 0 || this.position.y > height) {
+        this.velocity.y *= -1;
+      }
+    }
+    drawParticle() {
+      noStroke();
+      fill(this.color);
+      circle(this.position.x, this.position.y, this.size);
+      // Check if the particle is close to the center
+      if (dist(this.position.x, this.position.y, attractCenterX, attractCenterY) < 5) {
+        // Respawn the particle at a random position at the top
+        this.position.x = random(0, windowWidth / 2);
+        this.position.y = (random(0, -10));
+        // Give the particle a new random velocity
+        this.velocity = createVector(random(-2, 2), random(1, 3));
+        // Spawn a new particle at the mouse position
+        particles.push(new Particle(mouseX, mouseY));
+        // Limit the number of particles
+        if (particles.length > numParticles) {
+          particles.splice(0, 1); // Remove the oldest 5 particle
+        }
+      }
+    }
+  }
+</script>
