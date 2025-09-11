@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tracking Markers Web</title>
   <style>
     body, html {
@@ -251,9 +251,20 @@
 
     fullscreenBtn.addEventListener('click', () => {
       if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
+        document.documentElement.requestFullscreen().catch(() => {
+          // fallback CSS fullscreen for iOS
+          document.documentElement.style.position = 'fixed';
+          document.documentElement.style.top = 0;
+          document.documentElement.style.left = 0;
+          document.documentElement.style.width = '100%';
+          document.documentElement.style.height = '100%';
+        });
       } else {
-        document.exitFullscreen();
+        document.exitFullscreen().catch(() => {
+          document.documentElement.style.position = '';
+          document.documentElement.style.width = '';
+          document.documentElement.style.height = '';
+        });
       }
     });
 
@@ -287,6 +298,41 @@
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+
+    // --- Block zoom, scroll, pan globally but allow UI controls ---
+    function isFormElement(el) {
+      return ['INPUT', 'SELECT', 'TEXTAREA', 'BUTTON'].includes(el.tagName);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300 && !isFormElement(e.target)) {
+        e.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 1 && !isFormElement(e.target)) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.addEventListener('wheel', (e) => {
+      if (!isFormElement(e.target)) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   </script>
 </body>
 </html>
