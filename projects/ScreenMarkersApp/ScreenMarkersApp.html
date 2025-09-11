@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tracking Markers Web</title>
   <style>
     body, html {
@@ -50,6 +50,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
+      transition: transform 0.2s ease;
     }
     #kbImage {
       width: 100vw;
@@ -124,6 +125,7 @@
     <label>Opacity:<br> <input type="range" id="kbOpacity" min="0" max="100" value="50"></label><br>
     <label>Tint Color: <input type="color" id="kbTintColor" value="#ff0000"></label><br>
     <label>Tint Strength:<br> <input type="range" id="kbTintStrength" min="0" max="100" value="30"></label><br>
+    <label>KB Y Offset:<br> <input type="range" id="kbYOffset" min="-200" max="200" value="0"></label><br>
     <button id="fullscreenBtn">Fullscreen</button>
     <button id="kbBtn">KB</button>
   </div>
@@ -153,6 +155,8 @@
     const kbTint = document.getElementById('kbTint');
     const kbTintColor = document.getElementById('kbTintColor');
     const kbTintStrength = document.getElementById('kbTintStrength');
+    const kbYOffset = document.getElementById('kbYOffset');
+    const kbWrapper = document.getElementById('kbWrapper');
     const toggleUiBtn = document.getElementById('toggleUiBtn');
     const uiBox = document.getElementById('uiBox');
 
@@ -251,20 +255,9 @@
 
     fullscreenBtn.addEventListener('click', () => {
       if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {
-          // fallback CSS fullscreen for iOS
-          document.documentElement.style.position = 'fixed';
-          document.documentElement.style.top = 0;
-          document.documentElement.style.left = 0;
-          document.documentElement.style.width = '100%';
-          document.documentElement.style.height = '100%';
-        });
+        document.documentElement.requestFullscreen();
       } else {
-        document.exitFullscreen().catch(() => {
-          document.documentElement.style.position = '';
-          document.documentElement.style.width = '';
-          document.documentElement.style.height = '';
-        });
+        document.exitFullscreen();
       }
     });
 
@@ -296,43 +289,12 @@
       uiBox.style.display = uiBox.style.display === 'none' ? 'block' : 'none';
     });
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    // --- Block zoom, scroll, pan globally but allow UI controls ---
-    function isFormElement(el) {
-      return ['INPUT', 'SELECT', 'TEXTAREA', 'BUTTON'].includes(el.tagName);
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) {
-        e.preventDefault();
-      }
+    kbYOffset.addEventListener('input', () => {
+      kbWrapper.style.transform = `translateY(${kbYOffset.value}px)`;
     });
 
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', (e) => {
-      const now = Date.now();
-      if (now - lastTouchEnd <= 300 && !isFormElement(e.target)) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    }, { passive: false });
-
-    document.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 1 && !isFormElement(e.target)) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    document.addEventListener('wheel', (e) => {
-      if (!isFormElement(e.target)) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
   </script>
 </body>
 </html>
