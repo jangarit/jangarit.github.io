@@ -2587,12 +2587,7 @@ blockquote {
     padding-top: 100px;
   }
 
-  .display-1 {
-    letter-spacing: -.05rem;
-  }
-
   .display-1.second {
-    letter-spacing: -.04rem;
     font-size: 1.5rem;
     line-height: 1.6rem;
   }
@@ -2601,6 +2596,13 @@ blockquote {
     text-align: center;
     font-size: 2.2rem;
     line-height: 2.2rem;
+  }
+
+  .display-1.second._1-7-rem {
+    font-size: var(--font--h6);
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 1.4rem;
   }
 
   .margin-30.make-flex {
@@ -2724,7 +2726,7 @@ blockquote {
     grid-row-gap: 50px;
     max-height: none;
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 20px;
     position: relative;
   }
 
@@ -3488,6 +3490,10 @@ blockquote {
 
   .subhead-main, .subhead-main.for-footer-title, .subhead-main.for-footer-details {
     font-size: 15px;
+  }
+
+  .subhead-main.right {
+    text-align: right;
   }
 
   .case-sticky {
