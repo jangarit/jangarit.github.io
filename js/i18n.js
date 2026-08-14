@@ -68,3 +68,26 @@
         applyLang(getCurrentLang());
     });
 })();
+
+// ─── Preloader fallback for GitHub Pages ────────────────────────────────────
+// Webflow's IX2 animation engine may not fire its "page loaded" trigger when
+// hosted outside Webflow servers, leaving the preloader stuck on screen.
+// This fallback forces it to hide after 3 s (or on window load, whichever
+// comes first), so the user always sees the site content.
+(function () {
+    function hidePreloader() {
+        var el = document.querySelector('.preloader');
+        if (!el) return;
+        el.style.transition = 'opacity 0.4s ease';
+        el.style.opacity = '0';
+        setTimeout(function () { el.style.display = 'none'; }, 420);
+    }
+
+    // Fire as soon as the window finishes loading
+    window.addEventListener('load', function () {
+        setTimeout(hidePreloader, 500); // small grace period for IX2
+    });
+
+    // Hard cap: never show the preloader for more than 3 seconds
+    setTimeout(hidePreloader, 3000);
+})();
