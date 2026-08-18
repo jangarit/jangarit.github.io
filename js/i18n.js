@@ -16,8 +16,9 @@
     }
 
     window.setLang = function(lang) {
+        if (getCurrentLang() === lang) return;
         localStorage.setItem('site_lang', lang);
-        applyLang(lang);
+        window.location.reload();
     };
 
     function applyLang(lang) {
