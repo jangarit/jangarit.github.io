@@ -1136,8 +1136,6 @@ blockquote {
 
 .overlay-main._01 {
   opacity: 1;
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
   background-color: #fff0;
   -webkit-mask-image: linear-gradient(to top, #000 10%, #0000 100%);
   mask-image: linear-gradient(to top, #000 10%, #0000 100%);
@@ -1156,11 +1154,6 @@ blockquote {
   background-color: #0000004d;
   background-image: linear-gradient(0deg, #000000b0, #fff0 52%);
   height: 100%;
-}
-
-.overlay-main._01.less.full.thumbgradient {
-  background-image: linear-gradient(0deg, #000000b0 6%, #fff0 31%);
-  display: none;
 }
 
 .work-photo {
@@ -2811,10 +2804,6 @@ blockquote {
   .smaller.margin-100-r {
     padding-left: 70px;
     padding-right: 70px;
-  }
-
-  .overlay-main._01.less.full.thumbgradient {
-    display: block;
   }
 
   .work-title-wrapper {
