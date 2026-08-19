@@ -671,7 +671,7 @@ blockquote {
 }
 
 .navigation-wrapper-main {
-  z-index: 2000;
+  z-index: 1000;
   width: 100%;
   min-height: var(--_navbar---navbar-height);
   filter: none;
@@ -2644,12 +2644,24 @@ blockquote {
     width: 33.3333%;
   }
 
+  .part-2 {
+    grid-column-gap: 0%;
+    grid-row-gap: 0%;
+    flex-flow: row;
+  }
+
   .navlinks {
     height: auto;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 60px;
     line-height: .9;
+  }
+
+  .navigation-content {
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: 1fr 1fr;
   }
 
   .menu-button {
@@ -2699,12 +2711,18 @@ blockquote {
   }
 
   .navigation-link.for-logo {
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 1.6rem;
   }
 
   .navigation-link.for-logo.w--current {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  .nav-text.first.logo {
+    font-size: var(--button--nav-text);
   }
 
   .top-hero {
