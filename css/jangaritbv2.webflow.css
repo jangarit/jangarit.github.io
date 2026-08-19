@@ -31,7 +31,7 @@
   --colors--sixth-color: #ff0051;
   --button--font-size: 14px;
   --_navbar---navbar-height: 75px;
-  --button--nav-text: 1rem;
+  --button--nav-text: .9rem;
   --font--work-title: 1.2rem;
   --work-subtitle: .8rem;
   --page-margin--margin-5px: 5px;
@@ -241,7 +241,6 @@ blockquote {
 
 .section.with-z-index {
   z-index: 100;
-  background-color: #000;
   justify-content: center;
   width: 100vw;
   margin-top: 50px;
@@ -812,10 +811,6 @@ blockquote {
   font-weight: var(--font-weight--800);
 }
 
-.nav-text.first {
-  font-size: var(--button--nav-text);
-}
-
 .nav-text.first.bottom {
   font-size: var(--font--h6);
 }
@@ -846,7 +841,7 @@ blockquote {
 }
 
 .top-hero.for-inner.about {
-  margin-top: 64px;
+  margin-top: 75px;
 }
 
 .top-hero.main {
@@ -914,7 +909,6 @@ blockquote {
 }
 
 .subhead-main.for-footer-title {
-  opacity: .6;
   font-size: var(--font--h3);
   text-transform: capitalize;
   margin-top: 40px;
@@ -933,6 +927,7 @@ blockquote {
 .subhead-main.right {
   font-size: 15px;
   line-height: var(--font--h6);
+  text-align: right;
 }
 
 .margin-20px {
@@ -1213,7 +1208,7 @@ blockquote {
 }
 
 .project-card-thumbnail-wrapper {
-  z-index: 6;
+  z-index: 3;
   aspect-ratio: auto;
   justify-content: center;
   align-items: center;
@@ -1224,7 +1219,7 @@ blockquote {
 }
 
 .work-bg {
-  z-index: 4;
+  z-index: 0;
   object-fit: cover;
   background-color: #000;
   height: 100%;
@@ -1243,6 +1238,7 @@ blockquote {
 }
 
 .work-wrapper {
+  z-index: 0;
   width: 100%;
   min-height: 35vw;
   color: var(--colors--fourth-color);
@@ -1839,7 +1835,6 @@ blockquote {
   z-index: 30;
   width: 100vw;
   padding: 50px var(--page-margin--margin-70px) 30px;
-  background-color: var(--colors--first-color);
   justify-content: center;
   display: flex;
   position: relative;
@@ -1960,7 +1955,7 @@ blockquote {
 }
 
 .homeprojects {
-  z-index: 10;
+  z-index: 0;
   width: var(--page-container--width);
   max-width: var(--page-container--container);
   grid-column-gap: 16px;
@@ -2141,8 +2136,6 @@ blockquote {
 }
 
 .contactsection {
-  z-index: 100;
-  background-color: var(--color--second-color);
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
