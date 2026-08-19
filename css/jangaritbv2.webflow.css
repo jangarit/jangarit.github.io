@@ -674,7 +674,6 @@ blockquote {
   z-index: 1000;
   width: 100%;
   min-height: var(--_navbar---navbar-height);
-  filter: none;
   -webkit-backdrop-filter: brightness(75%) blur(20px);
   backdrop-filter: brightness(75%) blur(20px);
   grid-template-rows: auto auto;
@@ -713,7 +712,7 @@ blockquote {
 .part-3 {
   grid-column-gap: 0px;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   display: flex;
 }
 
@@ -811,13 +810,16 @@ blockquote {
   font-weight: var(--font-weight--800);
 }
 
+.navigation-link.for-logo.w--current {
+  align-self: stretch;
+}
+
 .nav-text.first.bottom {
   font-size: var(--font--h6);
 }
 
 .nav-text.second {
   pointer-events: none;
-  font-size: var(--button--nav-text);
   position: absolute;
   top: 100%;
 }
@@ -1149,8 +1151,6 @@ blockquote {
 }
 
 .overlay-main._01.less.full {
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
   background-color: #0000004d;
   background-image: linear-gradient(0deg, #000000b0, #fff0 52%);
   height: 100%;
@@ -2460,11 +2460,6 @@ blockquote {
     grid-template-columns: minmax(40vw, 1fr) 3fr;
   }
 
-  .overlay-main._01.less.full {
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-
   .worktitle {
     padding-left: 5px;
     padding-right: 5px;
@@ -2654,12 +2649,11 @@ blockquote {
   .navigation-content {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .25fr 1fr;
   }
 
   .menu-button {
     z-index: 999;
-    filter: invert();
     order: 1;
     padding: 0;
   }
@@ -2714,7 +2708,7 @@ blockquote {
     margin-bottom: 0;
   }
 
-  .nav-text.first.logo {
+  .nav-text.first.logo, .nav-text.second {
     font-size: var(--button--nav-text);
   }
 
@@ -3491,6 +3485,10 @@ blockquote {
     font-size: 50px;
   }
 
+  .navigation-content {
+    grid-template-columns: .5fr 1fr;
+  }
+
   .nav-menu {
     padding-top: 75px;
   }
@@ -3786,7 +3784,7 @@ blockquote {
   grid-area: 1 / 2 / 2 / 3;
 }
 
-#w-node-d79fa38c-8ecb-a176-9278-ba6c01f7913e-73323a60, #w-node-_792b4641-a9fb-f62b-7afe-d39f799b6293-73323a60 {
+#Tactil-intro.w-node-d79fa38c-8ecb-a176-9278-ba6c01f7913e-73323a60, #w-node-_792b4641-a9fb-f62b-7afe-d39f799b6293-73323a60 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
@@ -3816,7 +3814,7 @@ blockquote {
 
 #w-node-cdcb0ebe-6184-0899-ea51-5038671515ce-671515cb {
   grid-area: span 1 / span 1 / span 1 / span 1;
-  place-self: center start;
+  place-self: stretch start;
 }
 
 #w-node-cdcb0ebe-6184-0899-ea51-5038671515d2-671515cb {
