@@ -1344,13 +1344,14 @@ blockquote {
 .text-big {
   pointer-events: none;
   mix-blend-mode: normal;
+  display: block;
   position: absolute;
   inset: auto 0% 40px;
 }
 
 .tv-dots {
   z-index: 3;
-  opacity: .05;
+  opacity: .03;
   pointer-events: none;
   background-image: url('../images/dots.gif');
   background-position: 50%;
@@ -1486,6 +1487,7 @@ blockquote {
 .logo-svg {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 .main-strip {
@@ -1902,6 +1904,9 @@ blockquote {
   background-color: var(--colors--first-color);
   justify-content: center;
   align-items: center;
+  min-width: 100vw;
+  max-width: 100vw;
+  max-height: 100vh;
   display: none;
   position: fixed;
   inset: 0%;

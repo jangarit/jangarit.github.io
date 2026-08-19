@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Aug 19 2026 19:18:26 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Aug 19 2026 19:41:47 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="690d3eac14465ada73323a60" data-wf-site="690d3eab14465ada73323a1f" lang="es">
 <head>
   <meta charset="utf-8">
@@ -79,6 +79,7 @@
           <h1 class="playbutton">▶</h1>
         </div>
       </div>
+      <div class="tv-dots"></div>
       <div class="div-block-gradient"></div>
     </div>
     <div class="mouseplaybutton w-embed w-iframe w-script"><!--  
@@ -88,106 +89,105 @@
     ========================================================================
  -->
       <!--  Load Tailwind CSS (Optional: Remove if your project already has Tailwind or styling)  -->
-      <script src="https://cdn.tailwindcss.com"></script>
       <!--  Load GSAP Animation Library  -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
       <style>
-    /* Container for the split screen demo */
-    .split-screen-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100; /* Full viewport height */
-        overflow: hidden; /* Prevent scrolling */
-        margin: 0;
-        padding: 0;
-    }
-    /* Rule to hide the native cursor only when over a designated zone. */
-    .cursor-zone {
-        cursor: none; /* Hides default cursor */
-    }
-    /* Custom Cursor Styling */
-    #custom-cursor {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        background-color: rgba(120, 120, 120, 0.3); /* Sets a blue background with 50% opacity */
-                backdrop-filter: blur(200px);
-        /*mix-blend-mode: difference; /* Inverts colors behind it */
-        pointer-events: none; /* CRUCIAL: Allows clicks to pass through the cursor */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        transform: translate(-50%, -50%);
-        /* Start hidden, only visible over a .cursor-zone */
-        opacity: 0; 
-        z-index: 9999;
-    }
-    /* Inner elements of the cursor */
-    #cursor-text {
-        color: #0d0d0d;
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin-bottom: 4px;
-        line-height: 1;
-    }
-    #play-icon {
-        fill: rgba(255, 255, 255, 1);
-        width: 4.2rem;
-        height: 4.2rem;
-    }
-    /* --- LIGHTBOX STYLES --- */
-    #video-lightbox {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
-        z-index: 10000; /* Must be higher than cursor */
-        display: none; /* Hidden by default */
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        cursor: default; /* Restore normal cursor for video controls */
-    }
-    #video-lightbox.active {
-        display: flex;
-        opacity: 1;
-    }
-    .lightbox-content {
-        position: relative;
-        width: 80%;
-        max-width: 80%;
-        aspect-ratio: 16 / 9;
-        box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    }
-    .lightbox-content iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    .close-lightbox {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        color: white;
-        font-size: 2rem;
-        line-height: 1;
-        cursor: pointer;
-        font-family: sans-serif;
-        opacity: 0.7;
-        transition: opacity 0.2s;
-    }
-    .close-lightbox:hover {
-        opacity: 1;
-    }
+  /* Container for the split screen demo */
+  .split-screen-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+    margin: 0;
+    padding: 0;
+  }
+  /* Rule to hide the native cursor only when over a designated zone. */
+  .cursor-zone {
+    cursor: none; /* Hides default cursor */
+  }
+  /* Custom Cursor Styling */
+  #custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(120, 120, 120, 0.3); /* Sets a blue background with 50% opacity */
+    backdrop-filter: blur(200px);
+    /*mix-blend-mode: difference; /* Inverts colors behind it */
+    pointer-events: none; /* CRUCIAL: Allows clicks to pass through the cursor */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    /* Start hidden, only visible over a .cursor-zone */
+    opacity: 0;
+    z-index: 9999;
+  }
+  /* Inner elements of the cursor */
+  #cursor-text {
+    color: #0d0d0d;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  #play-icon {
+    fill: rgba(255, 255, 255, 1);
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+  /* --- LIGHTBOX STYLES --- */
+  #video-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10000; /* Must be higher than cursor */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: default; /* Restore normal cursor for video controls */
+  }
+  #video-lightbox.active {
+    display: flex;
+    opacity: 1;
+  }
+  .lightbox-content {
+    position: relative;
+    width: 90%;
+    max-width: 90%;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+  .lightbox-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .close-lightbox {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    font-family: sans-serif;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .close-lightbox:hover {
+    opacity: 1;
+  }
 </style>
       <!--  1. The Custom Cursor Element  -->
       <div id="custom-cursor">
@@ -203,84 +203,84 @@
         </div>
       </div>
       <script>
-    // Self-executing function to isolate scope
-    (function() {
-        function initCustomCursor() {
-            // Check if GSAP is loaded
-            if (typeof gsap === 'undefined') {
-                requestAnimationFrame(initCustomCursor);
-                return;
-            }
-            const cursor = document.getElementById('custom-cursor');
-            const cursorZones = document.querySelectorAll('.cursor-zone'); 
-            const lightbox = document.getElementById('video-lightbox');
-            const youtubeFrame = document.getElementById('youtube-frame');
-            const closeBtn = document.querySelector('.close-lightbox');
-            // The requested Video ID
-            const VIDEO_ID = 'eMkl86bN944'; 
-            // --- LIGHTBOX FUNCTIONS ---
-            function openLightbox() {
-                // Ensure lightbox is appended to body to avoid z-index/transform issues in Webflow
-                if (lightbox.parentElement !== document.body) {
-                    document.body.appendChild(lightbox);
-                }
-                lightbox.style.display = 'flex';
-                // Small delay to allow display:flex to apply before opacity transition
-                requestAnimationFrame(() => {
-                    lightbox.classList.add('active');
-                });
-                // Set Src with Autoplay
-                youtubeFrame.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&showinfo=0`;
-            }
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                setTimeout(() => {
-                    lightbox.style.display = 'none';
-                    youtubeFrame.src = ''; // Important: Clears src to stop audio
-                }, 300);
-            }
-            // --- LISTENERS ---
-            // 1. Global Mouse Movement
-            window.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, {
-                    x: e.pageX,
-                    y: e.pageY-80,
-                    duration: 0.5,
-                    ease: "power2.out"
-                });
-            });
-            // 2. Zone Interaction (Hover & Click)
-            cursorZones.forEach(target => {
-                target.addEventListener('mouseenter', () => {
-                    gsap.to(cursor, { opacity: 0.9, width: 120, height: 120, duration: 0.5 });
-                });
-                target.addEventListener('mouseleave', () => {
-                    gsap.to(cursor, { opacity: 0,width: 0, height: 0, duration: 0.5 });
-                });
-                // Open lightbox on click
-                target.addEventListener('click', openLightbox);
-            });
-            // 3. Close Lightbox Events
-            closeBtn.addEventListener('click', closeLightbox);
-            // Close when clicking outside the video content
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            // Close on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    closeLightbox();
-                }
-            });
-            // Optional: Hide cursor if mouse leaves window
-            document.documentElement.addEventListener('mouseleave', () => {
-                gsap.to(cursor, { opacity: 0, duration: 0.5 });
-            });
+  // Self-executing function to isolate scope
+  (function () {
+    function initCustomCursor() {
+      // Check if GSAP is loaded
+      if (typeof gsap === 'undefined') {
+        requestAnimationFrame(initCustomCursor);
+        return;
+      }
+      const cursor = document.getElementById('custom-cursor');
+      const cursorZones = document.querySelectorAll('.cursor-zone');
+      const lightbox = document.getElementById('video-lightbox');
+      const youtubeFrame = document.getElementById('youtube-frame');
+      const closeBtn = document.querySelector('.close-lightbox');
+      // The requested Video ID
+      const VIDEO_ID = 'eMkl86bN944';
+      // --- LIGHTBOX FUNCTIONS ---
+      function openLightbox() {
+        // Ensure lightbox is appended to body to avoid z-index/transform issues in Webflow
+        if (lightbox.parentElement !== document.body) {
+          document.body.appendChild(lightbox);
         }
-        initCustomCursor();
-    })();
+        lightbox.style.display = 'flex';
+        // Small delay to allow display:flex to apply before opacity transition
+        requestAnimationFrame(() => {
+          lightbox.classList.add('active');
+        });
+        // Set Src with Autoplay
+        youtubeFrame.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&showinfo=0`;
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        setTimeout(() => {
+          lightbox.style.display = 'none';
+          youtubeFrame.src = ''; // Important: Clears src to stop audio
+        }, 300);
+      }
+      // --- LISTENERS ---
+      // 1. Global Mouse Movement
+      window.addEventListener('mousemove', (e) => {
+        gsap.to(cursor, {
+          x: e.pageX,
+          y: e.pageY - 80,
+          duration: 0.5,
+          ease: 'power2.out',
+        });
+      });
+      // 2. Zone Interaction (Hover & Click)
+      cursorZones.forEach((target) => {
+        target.addEventListener('mouseenter', () => {
+          gsap.to(cursor, { opacity: 0.9, width: 120, height: 120, duration: 0.5 });
+        });
+        target.addEventListener('mouseleave', () => {
+          gsap.to(cursor, { opacity: 0, width: 0, height: 0, duration: 0.5 });
+        });
+        // Open lightbox on click
+        target.addEventListener('click', openLightbox);
+      });
+      // 3. Close Lightbox Events
+      closeBtn.addEventListener('click', closeLightbox);
+      // Close when clicking outside the video content
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+      // Optional: Hide cursor if mouse leaves window
+      document.documentElement.addEventListener('mouseleave', () => {
+        gsap.to(cursor, { opacity: 0, duration: 0.5 });
+      });
+    }
+    initCustomCursor();
+  })();
 </script>
     </div>
     <a data-w-id="ca2436c4-ff3e-4c90-e10b-1172af996373" href="#About" class="link-block w-inline-block"><img src="images/chevron-down-outline.svg" loading="lazy" width="70" alt="" class="chevron"></a>
@@ -294,217 +294,206 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="" rel="stylesheet">
             <style>
-    :root {
-      --char-size: 10px;
-      /* Equivalent to original font-size */
-      --line-height: 10px;
-      /* Equivalent to original line-height */
-    }
-    /* Minimal Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    #ascii-container {
-      color: #ffffff;
-      /* Default, overridden by JS spans */
-      font-size: var(--char-size);
-      line-height: var(--line-height);
-      white-space: pre;
-      letter-spacing: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      /* Allows clicks/interaction through the animation layer */
-    }
-  </style>
+      :root {
+        --char-size: 10px;
+        /* Equivalent to original font-size */
+        --line-height: 10px;
+        /* Equivalent to original line-height */
+      }
+      /* Minimal Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #ascii-container {
+        color: #ffffff;
+        /* Default, overridden by JS spans */
+        font-size: var(--char-size);
+        line-height: var(--line-height);
+        white-space: pre;
+        letter-spacing: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        /* Allows clicks/interaction through the animation layer */
+      }
+    </style>
           </head>
           <body>
             <div id="ascii-container"></div>
             <script>
-    // --- Perlin Noise Class (Simplified/Modernized) ---
-    class PerlinNoise {
-      constructor(seed) {
-        // Initialize permutation array with an optional seed for reproducibility
-        const random = seed ? (() => {
-          let s = seed;
-          return () => (s = (s * 9301 + 49297) % 233280, s / 233280);
-        })() : Math.random;
-        this.p = Array(512);
-        const perm = Array.from({
-          length: 256
-        }, (_, i) => i);
-        for (let i = 255; i > 0; i--) {
-          const j = Math.floor(random() * (i + 1));
-          [perm[i], perm[j]] = [perm[j], perm[i]];
+      // --- Perlin Noise Class (Simplified/Modernized) ---
+      class PerlinNoise {
+        constructor(seed) {
+          // Initialize permutation array with an optional seed for reproducibility
+          const random = seed
+            ? (() => {
+                let s = seed;
+                return () => ((s = (s * 9301 + 49297) % 233280), s / 233280);
+              })()
+            : Math.random;
+          this.p = Array(512);
+          const perm = Array.from(
+            {
+              length: 256,
+            },
+            (_, i) => i,
+          );
+          for (let i = 255; i > 0; i--) {
+            const j = Math.floor(random() * (i + 1));
+            [perm[i], perm[j]] = [perm[j], perm[i]];
+          }
+          // Duplicate the array for easy modulo arithmetic in noise calculation
+          for (let i = 0; i < 256; i++) {
+            this.p[i] = this.p[i + 256] = perm[i];
+          }
         }
-        // Duplicate the array for easy modulo arithmetic in noise calculation
-        for (let i = 0; i < 256; i++) {
-          this.p[i] = this.p[i + 256] = perm[i];
+        // Standard Perlin Interpolation functions
+        fade = (t) => t * t * t * (t * (t * 6 - 15) + 10);
+        lerp = (t, a, b) => a + t * (b - a);
+        grad = (hash, x, y) => {
+          const h = hash & 3;
+          const u = h < 2 ? x : y;
+          const v = h < 2 ? y : x;
+          return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+        };
+        noise(x, y) {
+          let X = Math.floor(x) & 255;
+          let Y = Math.floor(y) & 255;
+          x -= Math.floor(x);
+          y -= Math.floor(y);
+          const u = this.fade(x);
+          const v = this.fade(y);
+          const A = this.p[X] + Y,
+            AA = this.p[A],
+            AB = this.p[A + 1],
+            B = this.p[X + 1] + Y,
+            BA = this.p[B],
+            BB = this.p[B + 1];
+          return this.lerp(v, this.lerp(u, this.grad(AA, x, y), this.grad(BA, x - 1, y)), this.lerp(u, this.grad(AB, x, y - 1), this.grad(BB, x - 1, y - 1)));
         }
       }
-      // Standard Perlin Interpolation functions
-      fade = t => t * t * t * (t * (t * 6 - 15) + 10);
-      lerp = (t, a, b) => a + t * (b - a);
-      grad = (hash, x, y) => {
-        const h = hash & 3;
-        const u = h < 2 ? x : y;
-        const v = h < 2 ? y : x;
-        return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+      // --- Core Animation Logic ---
+      const container = document.getElementById('ascii-container');
+      const perlin = new PerlinNoise(); // Use new PerlinNoise()
+      const CONFIG = {
+        chars: ['j', 'a', 'n', 'g', 'a', 'r', 'i', 't', 'b'],
+        charSize: 6, // Actual width in pixels
+        charHeight: 10, // Actual height (line-height) in pixels
+        influenceRadius: 100,
+        densityFalloff: 0.1,
+        noiseStrength: 1.15,
+        noiseFrequency: 10.2,
+        decayRate: 0.97,
+        brightnessThreshold: 0.3,
+        maxVelocity: 30, // Max cursor velocity for full radius
       };
-      noise(x, y) {
-        let X = Math.floor(x) & 255;
-        let Y = Math.floor(y) & 255;
-        x -= Math.floor(x);
-        y -= Math.floor(y);
-        const u = this.fade(x);
-        const v = this.fade(y);
-        const A = this.p[X] + Y,
-          AA = this.p[A],
-          AB = this.p[A + 1],
-          B = this.p[X + 1] + Y,
-          BA = this.p[B],
-          BB = this.p[B + 1];
-        return this.lerp(v,
-          this.lerp(u, this.grad(AA, x, y), this.grad(BA, x - 1, y)),
-          this.lerp(u, this.grad(AB, x, y - 1), this.grad(BB, x - 1, y - 1))
-        );
-      }
-    }
-    // --- Core Animation Logic ---
-    const container = document.getElementById('ascii-container');
-    const perlin = new PerlinNoise(); // Use new PerlinNoise()
-    const CONFIG = {
-      chars: ['j', 'a', 'n', 'g', 'a', 'r', 'i', 't', 'b'],
-      charSize: 6, // Actual width in pixels
-      charHeight: 10, // Actual height (line-height) in pixels
-      influenceRadius: 100,
-      densityFalloff: 0.1,
-      noiseStrength: 1.15,
-      noiseFrequency: 10.2,
-      decayRate: 0.97,
-      brightnessThreshold: 0.3,
-      maxVelocity: 30, // Max cursor velocity for full radius
-    };
-    // State Variables
-    let mouseX = window.innerWidth / 2,
-      mouseY = window.innerHeight / 2,
-      prevMouseX = mouseX,
-      prevMouseY = mouseY,
-      currentVelocity = 0,
-      activationGrid = [],
-      cols = 0,
-      rows = 0;
-    // --- Utility Functions ---
-    const initCanvas = () => {
-      const {
-        charSize,
-        charHeight
-      } = CONFIG;
-      // Recalculate grid size based on current window dimensions
-      cols = Math.ceil(window.innerWidth / charSize);
-      rows = Math.ceil(window.innerHeight / charHeight);
-      // Reinitialize activation grid
-      activationGrid = Array(rows).fill(0).map(() => Array(cols).fill(0));
-    };
-    const updateActivation = () => {
-      const {
-        charSize,
-        charHeight,
-        decayRate,
-        maxVelocity,
-        influenceRadius,
-        noiseFrequency,
-        noiseStrength,
-        densityFalloff
-      } = CONFIG;
-      // Calculate movement and velocity
-      const dx = mouseX - prevMouseX;
-      const dy = mouseY - prevMouseY;
-      const movement = Math.hypot(dx, dy); // Modern equivalent of Math.sqrt(dx*dx + dy*dy)
-      // Smooth velocity tracking
-      currentVelocity = currentVelocity * 0.7 + movement * 0.3;
-      const velocityScale = Math.min(1, currentVelocity / maxVelocity);
-      const scaledRadius = influenceRadius * velocityScale;
-      // Decay and Activation Buildup in one loop
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          activationGrid[r][c] *= decayRate; // Decay
-          if (movement > 0.01) {
-            const px = c * charSize;
-            const py = r * charHeight;
-            const distToCursor = Math.hypot(px - mouseX, py - mouseY);
-            // Noise-based distortion
-            const noiseVal = perlin.noise(px * noiseFrequency, py * noiseFrequency);
-            const distortedRadius = scaledRadius * (1 + noiseVal * noiseStrength);
-            if (distToCursor < distortedRadius) {
-              const normalizedDist = distToCursor / distortedRadius;
-              // Exponential falloff
-              const influence = Math.pow(1 - normalizedDist, densityFalloff);
-              const buildupAmount = influence * 0.15; // Controlled buildup speed
-              activationGrid[r][c] = Math.min(1, activationGrid[r][c] + buildupAmount);
+      // State Variables
+      let mouseX = window.innerWidth / 2,
+        mouseY = window.innerHeight / 2,
+        prevMouseX = mouseX,
+        prevMouseY = mouseY,
+        currentVelocity = 0,
+        activationGrid = [],
+        cols = 0,
+        rows = 0;
+      // --- Utility Functions ---
+      const initCanvas = () => {
+        const { charSize, charHeight } = CONFIG;
+        // Recalculate grid size based on current window dimensions
+        cols = Math.ceil(window.innerWidth / charSize);
+        rows = Math.ceil(window.innerHeight / charHeight);
+        // Reinitialize activation grid
+        activationGrid = Array(rows)
+          .fill(0)
+          .map(() => Array(cols).fill(0));
+      };
+      const updateActivation = () => {
+        const { charSize, charHeight, decayRate, maxVelocity, influenceRadius, noiseFrequency, noiseStrength, densityFalloff } = CONFIG;
+        // Calculate movement and velocity
+        const dx = mouseX - prevMouseX;
+        const dy = mouseY - prevMouseY;
+        const movement = Math.hypot(dx, dy); // Modern equivalent of Math.sqrt(dx*dx + dy*dy)
+        // Smooth velocity tracking
+        currentVelocity = currentVelocity * 0.7 + movement * 0.3;
+        const velocityScale = Math.min(1, currentVelocity / maxVelocity);
+        const scaledRadius = influenceRadius * velocityScale;
+        // Decay and Activation Buildup in one loop
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            activationGrid[r][c] *= decayRate; // Decay
+            if (movement > 0.01) {
+              const px = c * charSize;
+              const py = r * charHeight;
+              const distToCursor = Math.hypot(px - mouseX, py - mouseY);
+              // Noise-based distortion
+              const noiseVal = perlin.noise(px * noiseFrequency, py * noiseFrequency);
+              const distortedRadius = scaledRadius * (1 + noiseVal * noiseStrength);
+              if (distToCursor < distortedRadius) {
+                const normalizedDist = distToCursor / distortedRadius;
+                // Exponential falloff
+                const influence = Math.pow(1 - normalizedDist, densityFalloff);
+                const buildupAmount = influence * 0.15; // Controlled buildup speed
+                activationGrid[r][c] = Math.min(1, activationGrid[r][c] + buildupAmount);
+              }
             }
           }
         }
-      }
-    };
-    const generateFrame = () => {
-      const {
-        chars,
-        brightnessThreshold
-      } = CONFIG;
-      let output = '';
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const activation = activationGrid[r][c];
-          if (activation < brightnessThreshold) {
-            output += ' ';
-            continue;
+      };
+      const generateFrame = () => {
+        const { chars, brightnessThreshold } = CONFIG;
+        let output = '';
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const activation = activationGrid[r][c];
+            if (activation < brightnessThreshold) {
+              output += ' ';
+              continue;
+            }
+            // Map activation to character index (heavier char for higher activation)
+            const charIndex = Math.floor(activation * (chars.length - 1));
+            const char = chars[charIndex] || ' '; // Fallback just in case
+            // Map activation to grayscale color (34 to 221 in decimal)
+            const grayValue = Math.floor(34 + activation * 187);
+            const colorHex = grayValue.toString(16).padStart(2, '0');
+            const color = `#${colorHex}${colorHex}${colorHex}`;
+            // Use template literal for output span
+            output += `<span style="color:${color}">${char}</span>`;
           }
-          // Map activation to character index (heavier char for higher activation)
-          const charIndex = Math.floor(activation * (chars.length - 1));
-          const char = chars[charIndex] || ' '; // Fallback just in case
-          // Map activation to grayscale color (34 to 221 in decimal)
-          const grayValue = Math.floor(34 + (activation * 187));
-          const colorHex = grayValue.toString(16).padStart(2, '0');
-          const color = `#${colorHex}${colorHex}${colorHex}`;
-          // Use template literal for output span
-          output += `<span style="color:${color}">${char}</span>`;
+          output += '\n';
         }
-        output += '\n';
-      }
-      return output;
-    };
-    // --- Event Handlers & Loop ---
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-    window.addEventListener('resize', initCanvas);
-    const animate = () => {
-      // Update movement state
-      updateActivation();
-      // Render frame
-      container.innerHTML = generateFrame();
-      // Reset prev mouse position for next frame's velocity calculation
-      prevMouseX = mouseX;
-      prevMouseY = mouseY;
-      requestAnimationFrame(animate);
-    };
-    // Initialize and start
-    initCanvas();
-    animate();
-  </script>
+        return output;
+      };
+      // --- Event Handlers & Loop ---
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      window.addEventListener('resize', initCanvas);
+      const animate = () => {
+        // Update movement state
+        updateActivation();
+        // Render frame
+        container.innerHTML = generateFrame();
+        // Reset prev mouse position for next frame's velocity calculation
+        prevMouseX = mouseX;
+        prevMouseY = mouseY;
+        requestAnimationFrame(animate);
+      };
+      // Initialize and start
+      initCanvas();
+      animate();
+    </script>
           <script src="js/i18n.js"></script>
 </body>
           </html>
         </div>
         <div class="grid-2-column">
-          <div id="w-node-b3a01e61-756e-3bb6-f627-b7dd008dda35-73323a60" data-w-id="b3a01e61-756e-3bb6-f627-b7dd008dda35" style="opacity:0" class="intropic"><img src="images/CORAL2-p-800.avif" loading="lazy" sizes="100vw" srcset="images/CORAL2-p-800-p-500.avif 500w, images/CORAL2-p-800.avif 800w" alt=""></div>
+          <div id="w-node-b3a01e61-756e-3bb6-f627-b7dd008dda35-73323a60" data-w-id="b3a01e61-756e-3bb6-f627-b7dd008dda35" style="opacity:0" class="intropic"><img src="images/CORAL2-p-800.avif" loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="images/CORAL2-p-800-p-500.avif 500w, images/CORAL2-p-800.avif 800w" alt=""></div>
           <div id="w-node-dc6f5de0-ae5d-fd02-9260-f90de93f090d-73323a60" data-w-id="dc6f5de0-ae5d-fd02-9260-f90de93f090d" style="opacity:0" class="intro">
             <h1 id="interText1" data-wf-target="[[[&quot;690d3eac14465ada73323a60&quot;,&quot;7941846e-2626-bb9c-05c1-64c69e2f8ef4&quot;],[]]]" class="display-1 title w-node-_7941846e-2626-bb9c-05c1-64c69e2f8ef4-73323a60">Julian Angarita Bernal<br></h1>
             <h1 id="interText3" class="display-1 smaller w-node-e7340a6e-1bcc-c290-4d7f-3d218e46d0c0-73323a60" data-lang-es="Artista
