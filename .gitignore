@@ -3,7 +3,7 @@ add_i18n.py
 generate_projects.py
 Proyectos WEB Jangaritb - about.csv
 Proyectos WEB Jangaritb - PROYECTOS WEB.csv
-**/[Dd]esktop.ini*
+**/[Dd]esktop*
 
 # Exclude an entire directory
 # node_modules/
