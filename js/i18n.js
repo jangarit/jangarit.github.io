@@ -83,12 +83,12 @@
         if (!el || isHidden) return;
         isHidden = true;
 
-        // Sequence: Transform takes 0.4s immediately; opacity takes 0.4s after a 0.4s delay
-        el.style.transition = 'transform 0.4s ease, opacity 0.4s ease 0.4s';
+        // Sequence: Transform takes 0.6s immediately; opacity takes 0.4s after a 0.4s delay
+        el.style.transition = 'transform 0.6s ease, opacity 0.1s ease 0.4s';
         el.style.transform = 'translateY(100vh)';
         el.style.opacity = '0';
 
-        // Total duration is 0.8s (400ms slide + 400ms fade)
+        // Total duration is 1.0s (600ms slide + 100ms fade)
         setTimeout(function () {
             el.style.display = 'none';
         }, 850);
