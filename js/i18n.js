@@ -1,7 +1,7 @@
 // i18n.js
 // Handles automatic language detection and switching for ES/EN
 
-(function() {
+(function () {
     function getSavedLang() {
         return localStorage.getItem('site_lang');
     }
@@ -15,7 +15,7 @@
         return getSavedLang() || getBrowserLang();
     }
 
-    window.setLang = function(lang) {
+    window.setLang = function (lang) {
         if (getCurrentLang() === lang) return;
         localStorage.setItem('site_lang', lang);
         window.location.reload();
@@ -25,14 +25,14 @@
         document.documentElement.lang = lang;
 
         // Simple text replacement based on data attributes
-        document.querySelectorAll('[data-lang-es]').forEach(function(el) {
+        document.querySelectorAll('[data-lang-es]').forEach(function (el) {
             const esText = el.getAttribute('data-lang-es');
             const enText = el.getAttribute('data-lang-en') || esText; // fallback to es if en is empty
             el.innerHTML = lang === 'es' ? esText : enText;
         });
 
         // Toggle visibility for paired elements (e.g. <span data-lang="es">)
-        document.querySelectorAll('[data-lang]').forEach(function(el) {
+        document.querySelectorAll('[data-lang]').forEach(function (el) {
             if (el.getAttribute('data-lang') === lang) {
                 el.classList.remove('lang-hidden');
             } else {
@@ -41,21 +41,21 @@
         });
 
         // Placeholders for inputs and textareas
-        document.querySelectorAll('[data-lang-es-placeholder]').forEach(function(el) {
+        document.querySelectorAll('[data-lang-es-placeholder]').forEach(function (el) {
             const esPlaceholder = el.getAttribute('data-lang-es-placeholder');
             const enPlaceholder = el.getAttribute('data-lang-en-placeholder') || esPlaceholder;
             el.placeholder = lang === 'es' ? esPlaceholder : enPlaceholder;
         });
-        
+
         // Form submit buttons
-        document.querySelectorAll('input[type="submit"][data-lang-es-value]').forEach(function(el) {
+        document.querySelectorAll('input[type="submit"][data-lang-es-value]').forEach(function (el) {
             const esVal = el.getAttribute('data-lang-es-value');
             const enVal = el.getAttribute('data-lang-en-value') || esVal;
             el.value = lang === 'es' ? esVal : enVal;
         });
 
         // Update active class on language toggle links
-        document.querySelectorAll('[data-lang-select]').forEach(function(el) {
+        document.querySelectorAll('[data-lang-select]').forEach(function (el) {
             if (el.getAttribute('data-lang-select') === lang) {
                 el.classList.add('lang-active');
             } else {
@@ -65,7 +65,7 @@
     }
 
     // Run on DOM loaded
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         applyLang(getCurrentLang());
     });
 })();
@@ -76,12 +76,22 @@
 // This fallback forces it to hide after 3 s (or on window load, whichever
 // comes first), so the user always sees the site content.
 (function () {
+    var isHidden = false; // Flag to prevent running the function twice
+
     function hidePreloader() {
         var el = document.querySelector('.preloader');
-        if (!el) return;
-        el.style.transition = 'opacity 0.4s ease';
+        if (!el || isHidden) return;
+        isHidden = true;
+
+        // Sequence: Transform takes 0.4s immediately; opacity takes 0.4s after a 0.4s delay
+        el.style.transition = 'transform 0.4s ease, opacity 0.4s ease 0.4s';
+        el.style.transform = 'translateY(100vh)';
         el.style.opacity = '0';
-        setTimeout(function () { el.style.display = 'none'; }, 420);
+
+        // Total duration is 0.8s (400ms slide + 400ms fade)
+        setTimeout(function () {
+            el.style.display = 'none';
+        }, 850);
     }
 
     // Fire as soon as the window finishes loading
