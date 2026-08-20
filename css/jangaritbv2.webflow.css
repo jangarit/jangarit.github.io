@@ -2917,6 +2917,12 @@ blockquote {
     display: flex;
   }
 
+  .max-w-left.social {
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+  }
+
   .service-item {
     text-align: left;
     flex-flow: column;
@@ -3804,6 +3810,14 @@ blockquote {
 
   .social-content.left {
     display: flex;
+  }
+
+  .social-wrapper {
+    height: 25px;
+  }
+
+  .social-icon {
+    width: 25px;
   }
 
   .langbar {
