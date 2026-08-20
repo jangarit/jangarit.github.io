@@ -110,18 +110,6 @@ input.w-button {
   text-align: inherit;
   text-decoration: inherit;
 }
-.w-popover {
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  color: inherit;
-  overflow: visible;
-  position: fixed;
-  inset: auto;
-  margin: 8px;
-  position-anchor: auto;
-  position-area: top center;
-}
 .w-popover[popover]:not(:popover-open) {
   display: none;
 }
