@@ -2510,7 +2510,7 @@ blockquote {
 
 .sofwaretext {
   color: var(--color--first-color);
-  text-align: center;
+  font-size: var(--font--h6);
   justify-content: center;
   align-items: stretch;
 }
@@ -3869,7 +3869,7 @@ blockquote {
   }
 
   .softwarediv {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
