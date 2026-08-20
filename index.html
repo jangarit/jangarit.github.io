@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Thu Aug 20 2026 18:02:50 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Thu Aug 20 2026 19:02:41 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="690d3eac14465ada73323a60" data-wf-site="690d3eab14465ada73323a1f" lang="es">
 <head>
   <meta charset="utf-8">
@@ -162,15 +162,25 @@
     opacity: 1;
   }
   .lightbox-content {
+    display: flex;
     position: relative;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     width: 90%;
+    height: 90%;
     max-width: 90%;
+    max-height: 90%;
     aspect-ratio: 16 / 9;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   }
   .lightbox-content iframe {
+    display: flex;
     width: 100%;
     height: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     border: none;
   }
   .close-lightbox {
@@ -178,7 +188,7 @@
     top: -40px;
     right: 0;
     color: white;
-    font-size: 2rem;
+    font-size: 4rem;
     line-height: 1;
     cursor: pointer;
     font-family: sans-serif;
@@ -187,6 +197,7 @@
   }
   .close-lightbox:hover {
     opacity: 1;
+    scale: 120%;
   }
 </style>
       <!--  1. The Custom Cursor Element  -->

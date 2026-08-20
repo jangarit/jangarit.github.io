@@ -2000,6 +2000,9 @@ blockquote {
 
 .mouseplaybutton {
   z-index: 999;
+  justify-content: space-between;
+  align-items: stretch;
+  display: flex;
   position: relative;
   top: -1905px;
 }
@@ -3869,6 +3872,7 @@ blockquote {
   }
 
   .softwarediv {
+    grid-template-rows: auto auto auto auto auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
