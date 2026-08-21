@@ -95,6 +95,7 @@
 
 body {
   background-color: var(--color--second-color);
+  max-width: 100%;
   font-family: var(--font--primary-font);
   color: var(--colors--fourth-color);
   font-size: var(--page-margin--margin-15px);
@@ -1990,6 +1991,7 @@ blockquote {
 
 .body {
   background-color: var(--colors--first-color);
+  max-width: 100%;
   color: var(--colors--third-color);
   flex-flow: column;
   align-items: center;
@@ -2727,7 +2729,7 @@ blockquote {
   .navigation-content {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    grid-template-columns: .25fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .menu-button {
@@ -2786,7 +2788,7 @@ blockquote {
     margin-bottom: 0;
   }
 
-  .nav-text.first.logo {
+  .nav-text.first.logo, .nav-text.second {
     font-size: var(--button--nav-text);
   }
 
@@ -3241,6 +3243,10 @@ blockquote {
     padding-right: 0;
   }
 
+  .navigation-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .navigation-link:where(.w-variant-c88d97d7-2cae-93c7-4d4a-436a02b27614) {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -3577,7 +3583,7 @@ blockquote {
   }
 
   .navigation-content {
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: .5fr .5fr;
   }
 
   .nav-menu {
