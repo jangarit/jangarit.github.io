@@ -110,6 +110,9 @@ input.w-button {
   text-align: inherit;
   text-decoration: inherit;
 }
+.w-popover {
+  position-anchor: none;
+}
 .w-popover[popover]:not(:popover-open) {
   display: none;
 }

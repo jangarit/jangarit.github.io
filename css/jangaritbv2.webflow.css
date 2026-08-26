@@ -277,6 +277,8 @@ blockquote {
 
 .display-1.second._1-7-rem.eventos {
   column-count: 2;
+  column-rule: 1px solid #ffffff3d;
+  column-gap: 50px;
 }
 
 .display-1.second._1-2-rem {
