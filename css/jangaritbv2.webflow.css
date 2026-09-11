@@ -33,7 +33,7 @@
   --_navbar---navbar-height: 75px;
   --button--nav-text: .9rem;
   --font--work-title: 1.2rem;
-  --work-subtitle: .7rem;
+  --work-subtitle: .8rem;
   --page-margin--margin-5px: 5px;
   --page-margin--margin-100px: 100px;
   --page-margin--margin-40px: 40px;
@@ -1198,10 +1198,11 @@ blockquote {
 
 .work-title-wrapper {
   z-index: 100;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: flex-start;
-  align-items: flex-end;
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
   width: 90%;
   padding: 15px 20px;
   display: flex;
@@ -2401,8 +2402,8 @@ blockquote {
 }
 
 .logotactil {
-  filter: invert();
-  max-width: 80%;
+  filter: none;
+  max-width: 100%;
 }
 
 .logotactil.mini {
@@ -2440,7 +2441,7 @@ blockquote {
   font-size: var(--font--work-title);
   line-height: var(--font--work-title);
   font-weight: var(--font-weight--800);
-  letter-spacing: -.01em;
+  letter-spacing: 0;
   overflow-wrap: anywhere;
 }
 
@@ -2449,12 +2450,12 @@ blockquote {
   font-size: var(--work-subtitle);
   line-height: var(--work-subtitle);
   font-weight: var(--font-weight--500);
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 .image-2 {
   min-width: 20%;
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .container-2 {
@@ -2618,7 +2619,7 @@ blockquote {
     --button--font-size: 14px;
     --button--nav-text: 1rem;
     --font--work-title: 1.2rem;
-    --work-subtitle: .7rem;
+    --work-subtitle: .8rem;
     --page-margin--margin-5px: 5px;
     --page-margin--margin-100px: 100px;
     --page-margin--margin-40px: 40px;
@@ -2879,13 +2880,6 @@ blockquote {
   .smaller.margin-100-r {
     padding-left: 70px;
     padding-right: 70px;
-  }
-
-  .work-title-wrapper {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 
   .project-card-thumbnail-wrapper {
@@ -3877,6 +3871,10 @@ blockquote {
     flex: 1;
     padding-left: 5px;
     padding-right: 5px;
+  }
+
+  .image-2 {
+    max-width: 80%;
   }
 
   .softwarediv {

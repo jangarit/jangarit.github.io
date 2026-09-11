@@ -96,7 +96,7 @@
 
     // Fire as soon as the window finishes loading
     window.addEventListener('load', function () {
-        setTimeout(hidePreloader, 500); // small grace period for IX2
+        setTimeout(hidePreloader, 2500); // small grace period for IX2
     });
 
     // Hard cap: never show the preloader for more than 3 seconds
