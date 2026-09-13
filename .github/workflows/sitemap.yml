@@ -11,7 +11,7 @@ jobs:
     steps:
       # Step 1: Fetch the repository files
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Step 2: Generate the sitemap using your domain
       - name: Generate sitemap
