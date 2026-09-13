@@ -1,0 +1,27 @@
+name: Clean Webflow URLs
+on:
+  push:
+    branches:
+      - main # Change this to 'master' if your main branch uses the old naming
+
+permissions:
+  contents: write # Grants the action permission to fix and push your files
+
+jobs:
+  clean-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Strip .html Extensions From Links
+        run: |
+          find . -name "*.html" -type f -exec sed -i 's/\.html"/"/g' {} +
+
+      - name: Commit and Push Cleaned Links
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Automated: Stripped .html extensions from links"
+          git push
