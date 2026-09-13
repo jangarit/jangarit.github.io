@@ -2,7 +2,7 @@ name: Clean Webflow URLs
 on:
   push:
     branches:
-      - main # Change this to 'master' if your main branch uses the old naming
+      - master # Change this to 'master' if your main branch uses the old naming
 
 permissions:
   contents: write # Grants the action permission to fix and push your files
