@@ -3,29 +3,29 @@ name: Generate Sitemap
 on:
   push:
     branches:
-      - main # Change this to your default branch if it is 'master'
+      - master # Change this to 'master' if your default branch is named master
 
 jobs:
   sitemap:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out your repository content
+      # Step 1: Fetch the repository files
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Run the sitemap generator
+      # Step 2: Generate the sitemap using your domain
       - name: Generate sitemap
         uses: guimauvedigital/generate-sitemap@v1
         with:
-          base_url: "https://jangarit.github.io" # Replace with your actual domain
-          input_dir: "."                      # Optional: Folder to scan (default is root)
-          output_path: "sitemap.xml"          # Optional: Where to save it (default is root)
+          base_url: "https://jangarit.github.io/"
+          input_dir: "."                      # Scans the root folder where Webflow files sit
+          output_path: "sitemap.xml"          # Saves sitemap.xml to the root folder
 
-      # Step 3: Commit and push the generated sitemap back to the repo
+      # Step 3: Automatically commit and push back to your repo
       - name: Commit and Push Sitemap
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@://github.com"
           git add sitemap.xml
           git commit -m "chore: update sitemap.xml [skip ci]" || echo "No changes to commit"
           git push
