@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jangarit.github.io/sitemap.xml
