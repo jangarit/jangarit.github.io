@@ -8,7 +8,7 @@ Proyectos WEB Jangaritb - PROYECTOS WEB.csv
 
 # Exclude an entire directory
 # node_modules/
- projects/Pending/
+/projects/Pending/
 
 # Exclude all files with a specific extension
 #*.log
